@@ -39,9 +39,12 @@ const {
    production `site` + current path. */
 const canon = canonical || new URL(Astro.url.pathname, Astro.site).href;
 
-/* Where lead forms POST. Empty for now, so the shared script falls back to a
-   prefilled WhatsApp chat (no backend). Phase 2: point this at the CRM. */
-const formEndpoint = '';
+/* Where lead forms POST: the CRM's tf-intake/1 endpoint, e.g.
+   "https://crm.testsandfunnels.com/api/intake" (the CRM's Website forms page
+   shows the exact URL). Empty = every form opens a prefilled WhatsApp chat.
+   Set PUBLIC_CRM_INTAKE_URL at build time (GitHub repo variable) or edit the
+   fallback here. If the CRM is down, forms still fall back to WhatsApp. */
+const formEndpoint = import.meta.env.PUBLIC_CRM_INTAKE_URL || '';
 const tfConfig =
   `window.TF={"formEndpoint":"${formEndpoint}","wa":"917507994138",` +
   `"phone":"+91 75079 94138","email":"admin@testsandfunnels.com",` +

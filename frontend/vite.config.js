@@ -5,16 +5,15 @@
    serves at "/" (one service hosts the API and the CRM). */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  build: {
-    outDir: '../backend/public',
-    emptyOutDir: true, // outDir is outside the frontend root, so allow clearing it
-  },
+  plugins: [react()],
   server: {
     port: 5173,
     proxy: { '/api': 'http://localhost:5000' },
+  },
+  build: {
+    outDir: '../backend/public',
+    emptyOutDir: true, // outDir is outside the frontend root, so allow clearing it
   },
 });

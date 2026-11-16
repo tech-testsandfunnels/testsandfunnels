@@ -1,0 +1,10 @@
+{
+  "name": "testsandfunnels-crm",
+  "private": true,
+  "description": "Root scripts so a Node host (Hostinger Node.js apps, Render, Railway) can build and start the CRM from the repo root. The marketing site in website/ builds on its own.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "npm --prefix backend install && npm --prefix backend run build",
+    "start": "node backend/server.js"
+  }
+}

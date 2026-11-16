@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: website/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -40,6 +41,10 @@ jobs:
       - name: Build static site
         run: npm run build
         working-directory: website
+        env:
+          # CRM intake URL for the lead forms (repo Settings -> Secrets and variables -> Actions -> Variables).
+          # Unset = forms finish in WhatsApp.
+          PUBLIC_CRM_INTAKE_URL: ${{ vars.PUBLIC_CRM_INTAKE_URL }}
 
       - name: Upload dist/ to Hostinger over FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

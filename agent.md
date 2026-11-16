@@ -12,7 +12,7 @@ static HTML site to Astro. If behaviour and this file disagree, the code wins �
 
 **tests&funnels (t&f)** marketing website: a Delhi AI agency / production house / incubator partner (Incube8).
 
-- **Frontend-only.** There is **no backend** in this repo anymore (the old Express/Mongo leads API and dashboard were removed in the Astro migration). Lead forms post to a configurable endpoint that is currently empty, so they fall back to a prefilled WhatsApp chat. A CRM endpoint gets wired in phase 2.
+- **Static site + separate CRM.** The site itself is static. Lead forms post `tf-intake/1` events to the CRM (`backend/` + `frontend/`, see README and `docs/intake-spec.md`) when the `PUBLIC_CRM_INTAKE_URL` build variable is set; otherwise, or if the CRM is down, they fall back to a prefilled WhatsApp chat.
 - **Astro static site.** Every route is pre-rendered to plain HTML at build time and deployed as static files to Hostinger. No server runs in production.
 - **Current state = faithful port.** The 36 pages were migrated 1:1 from the old hand-built site: the exact markup, CSS and JS were reused, but the shared chrome (header, nav, footer, scripts, icon sprite) and the stylesheet are now defined **once**. Each page's `<main>` is still injected as a raw HTML string (`set:html`). The **next pass** is to refactor those into real components with Tailwind/shadcn and Framer Motion (see §9).
 
@@ -98,7 +98,7 @@ import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 - **Scripts** (`window.TF` config + `app.js`) are emitted with `is:inline` so Astro leaves them exactly as-is. `app.js` builds the mobile nav from the desktop nav, wires forms, runs scroll reveals/counters, and drives the video modal.
 
 ### Forms
-`app.js` reads `window.TF.formEndpoint` (set in `Layout.astro`). It is **empty**, so on submit the script opens a prefilled WhatsApp chat. Every `<form>` carries `data-form="audit|contact|incubation|training|partner"`, hidden UTM/attribution fields, and a `company` honeypot. **Phase 2:** set `formEndpoint` in `Layout.astro` to the CRM URL — one line, all forms switch over.
+`app.js` reads `window.TF.formEndpoint` (set in `Layout.astro` from the `PUBLIC_CRM_INTAKE_URL` build variable). When set, a submit posts one `tf-intake/1` `lead` event (with `submission_id`, `pillar` worked out from the page or the contact topic, and all form + UTM fields) to the CRM; on any error or after 6 s it shows a prefilled WhatsApp link instead. When empty, the script opens the prefilled WhatsApp chat directly. Every `<form>` carries `data-form="audit|contact|incubation|training|partner"`, hidden UTM/attribution fields, and a `company` honeypot.
 
 ---
 
@@ -127,7 +127,7 @@ import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 | **Change shared behaviour** | `src/chrome/app.js`. |
 | **Add a new page** | See §7. |
 | **Add an icon** | Add a `<symbol id="i-name" viewBox="0 0 24 24">` (stroke style, see [brandkit.md §7](brandkit.md)) to the sprite in `src/chrome/pre.html`; use it with `<svg class="ic"><use href="#i-name"/></svg>`. |
-| **Point forms at the CRM** | Set `formEndpoint` in `src/layouts/Layout.astro`. |
+| **Point forms at the CRM** | Set the GitHub Actions variable `PUBLIC_CRM_INTAKE_URL` (or the fallback in `src/layouts/Layout.astro`). |
 | **Add real media** | Put files in `public/media/`, reference as `/media/...`; set `data-src`/`data-poster` on the `.vid` and replace the `.ph` placeholder (see [brandkit.md §9](brandkit.md)). |
 | **Deploy to Hostinger** | See §8. |
 
@@ -194,7 +194,7 @@ Each file/component should carry a `/* ... */` header saying what it is and why;
 6. **404** isn't `noindex` (faithful to the old site); consider adding it.
 7. The **migration script** (`port.js`) was a one-off run from a scratch dir and is **not** in the repo; `legacy/` is the reference if a re-port is ever needed.
 
-(The old backend security issues — public `leads.json`, default admin creds — are **gone**: the backend was removed entirely.)
+(The old backend security issues — public `leads.json`, default admin creds — are **gone**. The CRM in `backend/` has no default password in production and limits CORS to the site.)
 
 ---
 

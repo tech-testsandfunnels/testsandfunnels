@@ -145,19 +145,37 @@
       data.form_type = kind;
       track(submitEvt, { form_type: kind, form_id: form.id, industry: data.industry || "", monthly_ad_spend: data.monthly_ad_spend || "" });
 
+      /* CRM intake (tf-intake/1, see docs/intake-spec.md in the repo). The site's forms are one step,
+         so each submission is a single "lead" event; the CRM sets the next action to "Call the lead".
+         Any failure or a slow CRM (6 s) falls back to the prefilled WhatsApp message, so no lead is lost. */
       if (TF.formEndpoint) {
         var btn = form.querySelector("button[type=submit]");
         if (btn) btn.disabled = true;
-        fetch(TF.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+        var path = window.location.pathname, pillar = "services";
+        if (/^\/(production-house|personal-branding|influencer-marketing)\//.test(path)) pillar = "production";
+        else if (/^\/training\//.test(path)) pillar = "training";
+        else if (/^\/incubation\//.test(path)) pillar = "incubation";
+        if (data.topic === "Training enquiry") pillar = "training";
+        if (data.topic === "Incubation") pillar = "incubation";
+        var sid = form.__sid || (form.__sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+        var msgBody = { schema: "tf-intake/1", event: "lead", submission_id: sid, form_type: kind, form_id: form.id, pillar: pillar,
+          source: "Website form", page_title: document.title, submitted_at: new Date().toISOString() };
+        for (var dk in data) { if (Object.prototype.hasOwnProperty.call(data, dk) && !(dk in msgBody)) msgBody[dk] = data[dk]; }
+        msgBody.form_type = kind;
+        var ctrl = window.AbortController ? new AbortController() : null;
+        var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 6000);
+        var waUrl = "https://wa.me/" + TF.wa + "?text=" + encodeURIComponent(lines.join("\n"));
+        fetch(TF.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(msgBody), signal: ctrl ? ctrl.signal : undefined })
           .then(function (r) {
             if (!r.ok) throw new Error("bad status");
             form.reset();
+            form.__sid = null;
             show("Thank you, " + (data.name || "") + ". " + (form.getAttribute("data-thanks") || "We have your request and will be in touch."), false);
           })
           .catch(function () {
-            show("Your request did not go through. Please call " + TF.phone + " or write to " + TF.email + ".", true);
+            show("We could not send this right now. Send it on WhatsApp instead, your details are filled in:", true, waUrl, "Open WhatsApp");
           })
-          .then(function () { if (btn) btn.disabled = false; });
+          .then(function () { clearTimeout(timer); if (btn) btn.disabled = false; });
         return;
       }
       var url = "https://wa.me/" + TF.wa + "?text=" + encodeURIComponent(lines.join("\n"));

@@ -3,7 +3,8 @@
 #
 # Deploy: create a free account at https://render.com, then New -> Blueprint,
 # connect this GitHub repo, and Render reads this file. You will be prompted for
-# the two secret values below (MONGODB_URI, ADMIN_PASSWORD).
+# the two secret values below (MONGODB_URI, ADMIN_PASSWORD). NODE_ENV=production
+# means the CRM refuses to log anyone in until ADMIN_PASSWORD and JWT_SECRET exist.
 #
 # You also need a database: create a free MongoDB Atlas cluster, allow access
 # from anywhere (0.0.0.0/0, since Render's IPs are dynamic), and paste its
@@ -33,5 +34,11 @@ services:
         sync: false # set this in the Render dashboard (your dashboard login password)
       - key: MONGODB_URI
         sync: false # paste your MongoDB Atlas connection string
-      - key: CLIENT_ORIGIN
-        value: "*"
+      - key: NODE_ENV
+        value: production
+      # The marketing site's origins, allowed to call /api/intake and /api/slots.
+      - key: CORS_ORIGINS
+        value: https://testsandfunnels.com,https://www.testsandfunnels.com
+      # false: website bookings wait as "requested" until confirmed in the dashboard.
+      - key: INTAKE_AUTO_CONFIRM
+        value: "false"
