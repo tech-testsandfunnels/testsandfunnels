@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /locations/delhi/.
-   Page content lives in src/html/locations__delhi.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /locations/delhi/ : thin wrapper. Content is src/html/locations__delhi.html (raw <main>),
+   structured data is src/html/locations__delhi.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/locations__delhi.html?raw';
 import jsonLd from '../../../html/locations__delhi.jsonld.html?raw';
 ---
 <Layout
-  title={"AI Agency in Delhi: Marketing & Media | tests&funnels"}
-  description={"AI agency in Delhi that automates marketing, sales and operations, produces media and builds personal brands. Call us or request a free audit."}
-  canonical={"https://testsandfunnels.com/locations/delhi/"}
-  ogTitle={"AI Agency in Delhi: Marketing & Media | tests&funnels"}
-  ogDescription={"AI agency in Delhi that automates marketing, sales and operations, produces media and builds personal brands. Call us or request a free audit."}
-  pageType={"location"}
+  title="AI Agency in Delhi: Marketing & Media | tests&funnels"
+  description="AI agency in Delhi that automates marketing, sales and operations, produces media and builds personal brands. Call us or request a free audit."
+  pageType="location"
+  navCurrent="/about/"
+  keywords="AI agency Delhi, marketing agency Delhi, production house Delhi, digital marketing company Delhi, personal branding Delhi"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

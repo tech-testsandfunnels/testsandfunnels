@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /ai-automation/operations-agents/.
-   Page content lives in src/html/ai-automation__operations-agents.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /ai-automation/operations-agents/ : thin wrapper. Content is src/html/ai-automation__operations-agents.html (raw <main>),
+   structured data is src/html/ai-automation__operations-agents.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/ai-automation__operations-agents.html?raw';
 import jsonLd from '../../../html/ai-automation__operations-agents.jsonld.html?raw';
 ---
 <Layout
-  title={"Operations Automation with AI Agents | tests&funnels"}
-  description={"Operations automation with AI agents: MIS, lead and order dashboards, reports and plans kept current, so your team stops rebuilding them by hand."}
-  canonical={"https://testsandfunnels.com/ai-automation/operations-agents/"}
-  ogTitle={"Operations Automation with AI Agents | tests&funnels"}
-  ogDescription={"Operations automation with AI agents: MIS, lead and order dashboards, reports and plans kept current, so your team stops rebuilding them by hand."}
-  pageType={"service"}
+  title="Operations Automation with AI Agents | tests&funnels"
+  description="Operations automation with AI agents: MIS, lead and order dashboards, reports and plans kept current, so your team stops rebuilding them by hand."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="operations automation, AI operations agents, MIS automation, lead dashboard, order dashboard, automated reporting, business plans kept current"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

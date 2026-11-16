@@ -1,4 +1,4 @@
-> **In this repo:** the CRM side of this spec is built in `backend/` (`lib/intake.js`, `routes/public.js`). The marketing site here is Astro (`website/`), not the `sitebuild/lib.py` build this spec mentions: its forms send a one-step `lead` event from `website/src/chrome/app.js`, and the intake URL is set with the `PUBLIC_CRM_INTAKE_URL` repo variable (see README). `mock-intake.js` is in `tools/`.
+> **In this repo:** the CRM side of this spec is built in `backend/` (`lib/intake.js`, `routes/public.js`). The marketing site is Astro (`website/`): its forms are the two-step forms this spec describes, driven by `website/src/chrome/app.js`, and the two URLs are set at build time with `PUBLIC_CRM_INTAKE_URL` / `PUBLIC_CRM_SLOTS_URL` (default: the live CRM; see README). `mock-intake.js` is in `tools/`. Besides the fields below, the hero forms on AI-automation and production pages send `interest`, and the Incube8 apply form sends `venture` (stored as the lead's company).
 
 # t&f website to CRM: intake spec (tf-intake/1)
 

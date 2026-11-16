@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /services/visibility-optimization/.
-   Page content lives in src/html/services__visibility-optimization.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /services/visibility-optimization/ : thin wrapper. Content is src/html/services__visibility-optimization.html (raw <main>),
+   structured data is src/html/services__visibility-optimization.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/services__visibility-optimization.html?raw';
 import jsonLd from '../../../html/services__visibility-optimization.jsonld.html?raw';
 ---
 <Layout
-  title={"AI Search Optimization: SEO, AEO, GEO | tests&funnels"}
-  description={"AI search optimization: SEO, AEO and GEO audits and strategy to be found on Google, maps, voice search and in AI answers. No ranking promises."}
-  canonical={"https://testsandfunnels.com/services/visibility-optimization/"}
-  ogTitle={"AI Search Optimization: SEO, AEO, GEO | tests&funnels"}
-  ogDescription={"AI search optimization: SEO, AEO and GEO audits and strategy to be found on Google, maps, voice search and in AI answers. No ranking promises."}
-  pageType={"service"}
+  title="AI Search Optimization: SEO, AEO, GEO | tests&funnels"
+  description="AI search optimization: SEO, AEO and GEO audits and strategy to be found on Google, maps, voice search and in AI answers. No ranking promises."
+  pageType="service"
+  navCurrent="/services/"
+  keywords="AI search optimization, SEO agency Delhi, AEO, GEO, answer engine optimization, generative engine optimization, local SEO, voice search optimization"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

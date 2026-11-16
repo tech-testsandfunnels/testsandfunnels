@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /services/sales-services/.
-   Page content lives in src/html/services__sales-services.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /services/sales-services/ : thin wrapper. Content is src/html/services__sales-services.html (raw <main>),
+   structured data is src/html/services__sales-services.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/services__sales-services.html?raw';
 import jsonLd from '../../../html/services__sales-services.jsonld.html?raw';
 ---
 <Layout
-  title={"Lead Conversion Services & Sales Ops | tests&funnels"}
-  description={"Lead conversion services in Delhi: telecalling and follow-ups, sales training and enablement, and CRM and sales ops setup."}
-  canonical={"https://testsandfunnels.com/services/sales-services/"}
-  ogTitle={"Lead Conversion Services & Sales Ops | tests&funnels"}
-  ogDescription={"Lead conversion services in Delhi: telecalling and follow-ups, sales training and enablement, and CRM and sales ops setup."}
-  pageType={"service"}
+  title="Lead Conversion Services & Sales Ops | tests&funnels"
+  description="Lead conversion services in Delhi: telecalling and follow-ups, sales training and enablement, and CRM and sales ops setup."
+  pageType="service"
+  navCurrent="/services/"
+  keywords="lead conversion services, telecalling services, sales follow-up, sales training, sales enablement, CRM setup, sales ops"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

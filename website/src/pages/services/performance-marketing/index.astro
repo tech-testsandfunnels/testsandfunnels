@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /services/performance-marketing/.
-   Page content lives in src/html/services__performance-marketing.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /services/performance-marketing/ : thin wrapper. Content is src/html/services__performance-marketing.html (raw <main>),
+   structured data is src/html/services__performance-marketing.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/services__performance-marketing.html?raw';
 import jsonLd from '../../../html/services__performance-marketing.jsonld.html?raw';
 ---
 <Layout
-  title={"Performance Marketing Agency in Delhi | tests&funnels"}
-  description={"Performance marketing agency in Delhi: Google, Meta and LinkedIn campaigns planned from unit economics and tested at every stage of the funnel."}
-  canonical={"https://testsandfunnels.com/services/performance-marketing/"}
-  ogTitle={"Performance Marketing Agency in Delhi | tests&funnels"}
-  ogDescription={"Performance marketing agency in Delhi: Google, Meta and LinkedIn campaigns planned from unit economics and tested at every stage of the funnel."}
-  pageType={"service"}
+  title="Performance Marketing Agency in Delhi | tests&funnels"
+  description="Performance marketing agency in Delhi: Google, Meta and LinkedIn campaigns planned from unit economics and tested at every stage of the funnel."
+  pageType="service"
+  navCurrent="/services/"
+  keywords="performance marketing agency Delhi, Google Ads agency, Meta Ads agency, LinkedIn Ads, PPC agency Delhi, funnel testing, unit economics"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

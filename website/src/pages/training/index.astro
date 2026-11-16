@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /training/.
-   Page content lives in src/html/training.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /training/ : thin wrapper. Content is src/html/training.html (raw <main>),
+   structured data is src/html/training.jsonld.html. Meta lives in the props below. */
 import Layout from '../../layouts/Layout.astro';
 import main from '../../html/training.html?raw';
 import jsonLd from '../../html/training.jsonld.html?raw';
 ---
 <Layout
-  title={"Performance Marketing Course in Delhi | tests&funnels"}
-  description={"Performance marketing course in Delhi with AI in every module: online live ₹40,000 or in-office ₹60,000 + GST, taught by agency founders."}
-  canonical={"https://testsandfunnels.com/training/"}
-  ogTitle={"Performance Marketing Course in Delhi | tests&funnels"}
-  ogDescription={"Performance marketing course in Delhi with AI in every module: online live ₹40,000 or in-office ₹60,000 + GST, taught by agency founders."}
-  pageType={"training"}
+  title="Performance Marketing Course in Delhi | tests&funnels"
+  description="Performance marketing course in Delhi with AI in every module: online live ₹40,000 or in-office ₹60,000 + GST, taught by agency founders."
+  pageType="training"
+  navCurrent="/training/"
+  keywords="performance marketing course Delhi, digital marketing training Delhi, performance marketing training program, AI marketing course, online live marketing course, in-office marketing training"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

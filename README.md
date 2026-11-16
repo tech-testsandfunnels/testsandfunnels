@@ -24,7 +24,7 @@ npm run dev      # http://localhost:4321
 npm run build    # -> website/dist/  (what gets deployed)
 ```
 
-**Deploy →** push to `main`. The GitHub Action (`.github/workflows/deploy.yml`) builds `website/` and FTP-uploads `dist/` to Hostinger. Add `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` as repo secrets first, and the `PUBLIC_CRM_INTAKE_URL` variable to send form leads to the CRM (see the end of this file).
+**Deploy →** push to `main`. The GitHub Action (`.github/workflows/deploy.yml`) builds `website/` and FTP-uploads `dist/` to Hostinger. Add `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` as repo secrets first. (If the site is deployed by Hostinger's own GitHub integration instead, that workflow is not needed.) The CRM URLs the forms use are described at the end of this file.
 
 ## Run the CRM
 
@@ -81,8 +81,13 @@ Optional: point a subdomain such as `crm.testsandfunnels.com` at the CRM host an
 
 ## Sending website leads into the CRM
 
-1. Deploy the CRM (above) and open **Website forms** in the dashboard. Copy the **Intake URL**.
-2. In GitHub → repo **Settings → Secrets and variables → Actions → Variables**, add `PUBLIC_CRM_INTAKE_URL` with that URL.
-3. Push to `main` (or re-run the deploy workflow). Every form now posts a `tf-intake/1` lead to the CRM.
+Every lead form on the site is two steps: **your details** (creates the lead in the CRM at once) and **pick a time** (books a call, which lands in the CRM's Appointments as *requested* until someone confirms it). The forms post `tf-intake/1` events to the CRM and read free slots from it ([spec](docs/intake-spec.md)).
 
-Without the variable, or if the CRM is down, the forms fall back to a prefilled WhatsApp message, so no lead is lost. `CORS_ORIGINS` on the CRM must include the site's origin (default: `https://testsandfunnels.com,https://www.testsandfunnels.com`).
+The CRM URLs are build-time variables of the website:
+
+| Variable | Default | |
+|---|---|---|
+| `PUBLIC_CRM_INTAKE_URL` | `https://crm.testsandfunnels.com/api/intake` | where forms post leads, appointments and skips. Set it to an empty string to turn the CRM off (forms then finish in WhatsApp) |
+| `PUBLIC_CRM_SLOTS_URL` | the intake URL with `/api/slots` | where step 2 reads free times |
+
+Set them where the site is built (Hostinger: the website app's environment variables; GitHub Actions: repo variables) if the CRM moves. If the CRM is down or slow, the forms fall back to a prefilled WhatsApp message, so no lead is lost. On the CRM, `CORS_ORIGINS` must include the site's origin (default: `https://testsandfunnels.com,https://www.testsandfunnels.com`), and **Settings → Booking hours** should match the fallback hours in `website/src/layouts/Layout.astro` (Mon to Sat, 11:00 to 18:00 IST, 30 minutes).

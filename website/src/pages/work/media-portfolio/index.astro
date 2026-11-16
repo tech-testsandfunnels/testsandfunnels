@@ -1,0 +1,17 @@
+---
+/* /work/media-portfolio/ : thin wrapper. Content is src/html/work__media-portfolio.html (raw <main>),
+   structured data is src/html/work__media-portfolio.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/work__media-portfolio.html?raw';
+import jsonLd from '../../../html/work__media-portfolio.jsonld.html?raw';
+---
+<Layout
+  title="Media Portfolio: Photo, Video and UGC Work | tests&funnels"
+  description="Media portfolio from tests&funnels: product and lifestyle photography, brand films, UGC, influencer content, AI visuals and personal-brand reels."
+  pageType="work"
+  navCurrent="/work/"
+  keywords="media portfolio, product photography portfolio, brand film portfolio, UGC portfolio, influencer content portfolio, AI visuals portfolio"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

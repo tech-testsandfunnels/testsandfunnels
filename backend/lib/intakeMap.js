@@ -12,7 +12,7 @@ const EVENTS = ['lead', 'appointment', 'skip'];
 /* Keys handled explicitly, so they are not copied into `extra`. */
 const KNOWN = new Set([
   'schema', 'event', 'submission_id', 'lead_id', 'form_type', 'form_id', 'pillar', 'source',
-  'page_title', 'submitted_at', 'name', 'phone', 'email', 'organisation', 'website', 'industry',
+  'page_title', 'submitted_at', 'name', 'phone', 'email', 'organisation', 'venture', 'website', 'industry',
   'monthly_ad_spend', 'company', // company = bot trap
   ...ATTRIBUTION_KEYS, ...INTEREST_KEYS,
   'appt_kind', 'appt_start', 'appt_end', 'appt_duration_min', 'appt_mode', 'appt_tz', 'appt_status',
@@ -77,7 +77,7 @@ function leadFields(d) {
     phone: str(d.phone, 40),
     phoneNormalised: normalisePhone(d.phone),
     email: str(d.email, 200).toLowerCase(),
-    company: str(d.organisation, 200),
+    company: str(d.organisation, 200) || str(d.venture, 200), // partner form sends organisation, Incube8 apply sends venture
     website: str(d.website, 300),
     industry: str(d.industry, 100),
     adSpend: str(d.monthly_ad_spend, 100),

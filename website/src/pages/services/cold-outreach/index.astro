@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /services/cold-outreach/.
-   Page content lives in src/html/services__cold-outreach.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /services/cold-outreach/ : thin wrapper. Content is src/html/services__cold-outreach.html (raw <main>),
+   structured data is src/html/services__cold-outreach.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/services__cold-outreach.html?raw';
 import jsonLd from '../../../html/services__cold-outreach.jsonld.html?raw';
 ---
 <Layout
-  title={"Cold Outreach Services for B2B Leads | tests&funnels"}
-  description={"Cold outreach services for B2B leads: data sourcing, email, WhatsApp and social DMs, and CRM automation aimed at qualified leads and demos."}
-  canonical={"https://testsandfunnels.com/services/cold-outreach/"}
-  ogTitle={"Cold Outreach Services for B2B Leads | tests&funnels"}
-  ogDescription={"Cold outreach services for B2B leads: data sourcing, email, WhatsApp and social DMs, and CRM automation aimed at qualified leads and demos."}
-  pageType={"service"}
+  title="Cold Outreach Services for B2B Leads | tests&funnels"
+  description="Cold outreach services for B2B leads: data sourcing, email, WhatsApp and social DMs, and CRM automation aimed at qualified leads and demos."
+  pageType="service"
+  navCurrent="/services/"
+  keywords="cold outreach services, B2B lead generation, cold email outreach, WhatsApp outreach, LinkedIn outreach, CRM automation, demo booking"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

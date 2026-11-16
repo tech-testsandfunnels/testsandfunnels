@@ -1,0 +1,17 @@
+---
+/* /production-house/product-and-lifestyle-shoots/ : thin wrapper. Content is src/html/production-house__product-and-lifestyle-shoots.html (raw <main>),
+   structured data is src/html/production-house__product-and-lifestyle-shoots.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/production-house__product-and-lifestyle-shoots.html?raw';
+import jsonLd from '../../../html/production-house__product-and-lifestyle-shoots.jsonld.html?raw';
+---
+<Layout
+  title="E-commerce Product Photography & Video | tests&funnels"
+  description="E-commerce product photography and lifestyle video planned for your ad formats, shot in bulk and cut down for every channel you run ads on."
+  pageType="service"
+  navCurrent="/production-house/"
+  keywords="e-commerce product photography, lifestyle video shoot, product shoot Delhi, ad creative production, catalogue photography, product video for ads"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

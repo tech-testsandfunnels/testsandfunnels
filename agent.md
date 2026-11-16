@@ -12,9 +12,9 @@ static HTML site to Astro. If behaviour and this file disagree, the code wins �
 
 **tests&funnels (t&f)** marketing website: a Delhi AI agency / production house / incubator partner (Incube8).
 
-- **Static site + separate CRM.** The site itself is static. Lead forms post `tf-intake/1` events to the CRM (`backend/` + `frontend/`, see README and `docs/intake-spec.md`) when the `PUBLIC_CRM_INTAKE_URL` build variable is set; otherwise, or if the CRM is down, they fall back to a prefilled WhatsApp chat.
+- **Static site + separate CRM.** The site itself is static. Every lead form is two steps (details, then pick a call time) and posts `tf-intake/1` events to the CRM (`backend/` + `frontend/`, see README and `docs/intake-spec.md`). The CRM URL comes from the `PUBLIC_CRM_INTAKE_URL` build variable (default: the live CRM); if the CRM is down, forms fall back to a prefilled WhatsApp chat.
 - **Astro static site.** Every route is pre-rendered to plain HTML at build time and deployed as static files to Hostinger. No server runs in production.
-- **Current state = faithful port.** The 36 pages were migrated 1:1 from the old hand-built site: the exact markup, CSS and JS were reused, but the shared chrome (header, nav, footer, scripts, icon sprite) and the stylesheet are now defined **once**. Each page's `<main>` is still injected as a raw HTML string (`set:html`). The **next pass** is to refactor those into real components with Tailwind/shadcn and Framer Motion (see §9).
+- **Current state = faithful port of the 2026-11-14 site build.** The 38 pages (37 + 404) were ported 1:1 from the static build in `live/` (the Python `sitebuild` output): the exact markup, CSS (light + dark theme) and JS were reused, but the shared chrome (header, nav, footer, scripts, icon sprite) and the stylesheet are defined **once**. Each page's `<main>` is injected as a raw HTML string (`set:html`). Every page also ships a Markdown copy (`/<route>/index.md`), and `llms.txt` / `llms-full.txt` are served from `public/`. The **next pass** is to refactor into real components with Tailwind/shadcn and Framer Motion (see §9).
 
 ---
 
@@ -51,7 +51,8 @@ src/
   html/                 per-page content, imported with ?raw and injected via set:html
     <slug>.html         the page's <main> ... </main>
     <slug>.jsonld.html  the page's <script type="application/ld+json"> block(s)
-  pages/                routes (Astro file-based routing); each is a thin wrapper
+  pages/                routes (Astro file-based routing); each is a thin wrapper with the
+                        page's title, description, keywords, pageType and navCurrent as props
     index.astro         home (/)
     404.astro           404 page
     <route>/index.astro one per URL, e.g. services/performance-marketing/index.astro
@@ -61,8 +62,10 @@ src/
 public/                 copied to the site root as-is
   .htaccess             HTTPS, caching, security headers, ErrorDocument 404
   robots.txt            points at /sitemap-index.xml
-  llms.txt
-  favicon.ico / .svg
+  llms.txt, llms-full.txt   for AI assistants (see brandkit/README)
+  <route>/index.md      Markdown copy of every page (linked from each page's head)
+  media/                og-default.jpg (social image), tf-logo.png
+  favicon.ico, favicon-32x32.png, icon-192.png, apple-touch-icon.png
 
 .github/workflows/
   deploy.yml            build + FTP-upload dist/ to Hostinger on push to main
@@ -98,7 +101,7 @@ import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 - **Scripts** (`window.TF` config + `app.js`) are emitted with `is:inline` so Astro leaves them exactly as-is. `app.js` builds the mobile nav from the desktop nav, wires forms, runs scroll reveals/counters, and drives the video modal.
 
 ### Forms
-`app.js` reads `window.TF.formEndpoint` (set in `Layout.astro` from the `PUBLIC_CRM_INTAKE_URL` build variable). When set, a submit posts one `tf-intake/1` `lead` event (with `submission_id`, `pillar` worked out from the page or the contact topic, and all form + UTM fields) to the CRM; on any error or after 6 s it shows a prefilled WhatsApp link instead. When empty, the script opens the prefilled WhatsApp chat directly. Every `<form>` carries `data-form="audit|contact|incubation|training|partner"`, hidden UTM/attribution fields, and a `company` honeypot.
+`app.js` reads `window.TF.intake` and `window.TF.slots` (set in `Layout.astro` from `PUBLIC_CRM_INTAKE_URL` / `PUBLIC_CRM_SLOTS_URL`; default: the live CRM). Every form is two steps: step 1 posts a `tf-intake/1` `lead` event at once; step 2 reads free times from `slots` (falling back to `TF.hours`), then posts an `appointment` event (409 `slot_taken` asks for another time) or a `skip` event. All three share one `submission_id`. `data-pillar` and `data-appt` on the `<form>` set the pipeline and the call type; the contact form's topic can override the pillar. If the CRM fails, the form opens a prefilled WhatsApp message instead. Every `<form>` carries `data-form="audit|contact|incubation|training|partner"`, hidden UTM/attribution fields, and a `company` honeypot. Per-form fields are listed in `docs/intake-spec.md` §3.2.
 
 ---
 
@@ -127,7 +130,7 @@ import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 | **Change shared behaviour** | `src/chrome/app.js`. |
 | **Add a new page** | See §7. |
 | **Add an icon** | Add a `<symbol id="i-name" viewBox="0 0 24 24">` (stroke style, see [brandkit.md §7](brandkit.md)) to the sprite in `src/chrome/pre.html`; use it with `<svg class="ic"><use href="#i-name"/></svg>`. |
-| **Point forms at the CRM** | Set the GitHub Actions variable `PUBLIC_CRM_INTAKE_URL` (or the fallback in `src/layouts/Layout.astro`). |
+| **Point forms at the CRM** | Build variables `PUBLIC_CRM_INTAKE_URL` / `PUBLIC_CRM_SLOTS_URL` (defaults in `src/layouts/Layout.astro`). Booking hours fallback: `TF.hours` in the same file. |
 | **Add real media** | Put files in `public/media/`, reference as `/media/...`; set `data-src`/`data-poster` on the `.vid` and replace the `.ph` placeholder (see [brandkit.md §9](brandkit.md)). |
 | **Deploy to Hostinger** | See §8. |
 
@@ -186,9 +189,9 @@ Each file/component should carry a `/* ... */` header saying what it is and why;
 
 ## 10. Known issues / carried-over debt
 
-1. **Broken links** (from the old site, still present): `/privacy-policy/`, `/terms/`, `/refund-policy/` and `/production-house/product-and-lifestyle-shoots/` are linked (footer + every form's "Privacy Policy") but don't exist. The site collects personal data, so create the policy pages before a real launch.
+1. **Broken links** (still present): `/privacy-policy/`, `/terms/` and `/refund-policy/` are linked (footer + every form's "Privacy Policy") but don't exist. The site collects personal data, so create the policy pages before a real launch. (`/production-house/product-and-lifestyle-shoots/` and `/work/media-portfolio/` now exist.)
 2. **No media.** All 145 media spots are placeholders; there's no `public/media/` folder, no logos, no real testimonials.
-3. **Inner-page active nav underline** was dropped in the port (home has none; the shared header no longer sets `aria-current` per page). Restore it in the componentization pass.
+3. **Active nav underline** is back: each page passes `navCurrent` (the top nav href) to the Layout, which adds `aria-current="page"`.
 4. **Fonts** load from Google's CDN (third-party request). Self-host later.
 5. **No analytics tag** is installed, though events are pushed to `dataLayer` by `app.js`.
 6. **404** isn't `noindex` (faithful to the old site); consider adding it.

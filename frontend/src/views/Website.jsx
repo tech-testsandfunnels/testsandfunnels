@@ -9,8 +9,8 @@ import { istTime, fDW, istDate, copyText } from '../lib/format';
 
 const MAP = [
   ['name, phone, email', 'Lead: name, phone (normalised to +91…), email'],
-  ['organisation, website, industry, monthly_ad_spend', 'Lead: company, website, industry, ad spend'],
-  ['topic, stage, format, status, city, mode, goal, message', 'Lead: interest and notes, kept as typed'],
+  ['organisation or venture, website, industry, monthly_ad_spend', 'Lead: company (or venture), website, industry, ad spend'],
+  ['interest, topic, stage, format, status, city, mode, goal, message', 'Lead: interest and notes, kept as typed'],
   ['pillar (set from the page the form is on)', 'Lead: pipeline (Services, Production house, Training or Incube8), first stage'],
   ['utm_*, gclid, fbclid, landing_page, referrer, source_page', 'Lead: where it came from, shown as "Came from"'],
   ['appt_start, appt_end, appt_kind, appt_mode, appt_duration_min', 'Appointment: time (IST), length, call type and mode. Status "requested" until you confirm'],

@@ -3,52 +3,76 @@
  * Layout.astro
  *
  * What it is: the single HTML shell wrapped around every page.
- * Why it exists: the old site copied the <head>, header, nav, footer, mobile
- *   bar, floating CTA, video modal and scripts into all 36 files. Here they
- *   live ONCE, so a change to the nav or footer is made in one place.
- * Where it's going: the raw chrome blobs below (ported verbatim from the old
- *   site) get refactored into real components (Header, Nav, Footer, ...) with
- *   Framer Motion in the next pass. Pages only supply their <main>.
+ * Why it exists: the head (meta, Open Graph, Twitter, JSON-LD), the header,
+ *   nav, footer, mobile bar, floating CTA, video modal, icon sprite, theme
+ *   script and site script live ONCE here, so a change is made in one place.
+ * Pages supply their <main> (src/html/<slug>.html) and their meta as props.
+ *
+ * Forms: every lead form is two steps (details, then pick a call time). The
+ *   shared script posts tf-intake/1 events to the CRM (window.TF.intake) and
+ *   reads free slots from window.TF.slots. Both come from the build variables
+ *   PUBLIC_CRM_INTAKE_URL / PUBLIC_CRM_SLOTS_URL; the default is the live CRM.
+ *   An empty PUBLIC_CRM_INTAKE_URL turns the CRM off (forms finish in WhatsApp).
  */
 import '../styles/global.css';
-import pre from '../chrome/pre.html?raw'; // icon sprite + progress bar + skip link + header + mobile-nav
+import pre from '../chrome/pre.html?raw'; // icon sprite + skip link + progress bar + header + mobile nav
 import post from '../chrome/post.html?raw'; // footer + mobile action bar + floating CTA + video modal
-import app from '../chrome/app.js?raw'; // shared interactions: nav, forms, scroll reveal, counters, modal
+import app from '../chrome/app.js?raw'; // shared interactions: nav, two-step forms, scroll reveal, counters, modal
 
 interface Props {
   title: string;
-  description?: string;
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  pageType?: string;
-  jsonLd?: string; // raw <script type="application/ld+json"> markup for this page
+  description: string;
+  keywords?: string;
+  pageType?: string; // <body data-page-type>, used by the script for analytics
+  navCurrent?: string; // href of the top nav item to mark as current, e.g. "/services/"
+  noindex?: boolean; // 404: no canonical, no OG image, robots noindex
+  jsonLd?: string; // raw <script type="application/ld+json"> blocks for this page
+  published?: string; // ISO date; article:published_time
+  modified?: string; // ISO date; article:modified_time and og:updated_time
 }
+
+const SITE = 'https://testsandfunnels.com';
+const OG_IMAGE = SITE + '/media/og-default.jpg';
+const OG_ALT = 'tests&funnels: AI agency, production house and incubator in Delhi';
 
 const {
   title,
-  description = '',
-  canonical,
-  ogTitle,
-  ogDescription,
+  description,
+  keywords = '',
   pageType = '',
+  navCurrent = '',
+  noindex = false,
   jsonLd = '',
+  published = '2026-11-14',
+  modified = '2026-11-14',
 } = Astro.props;
 
-/* Absolute canonical URL: use the page's own if given, else derive from the
-   production `site` + current path. */
-const canon = canonical || new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+const canon = SITE + (noindex ? '/' : path);
+const mdHref = SITE + (path === '/' ? '/index.md' : path + 'index.md');
 
-/* Where lead forms POST: the CRM's tf-intake/1 endpoint, e.g.
-   "https://crm.testsandfunnels.com/api/intake" (the CRM's Website forms page
-   shows the exact URL). Empty = every form opens a prefilled WhatsApp chat.
-   Set PUBLIC_CRM_INTAKE_URL at build time (GitHub repo variable) or edit the
-   fallback here. If the CRM is down, forms still fall back to WhatsApp. */
-const formEndpoint = import.meta.env.PUBLIC_CRM_INTAKE_URL || '';
+/* CRM endpoints for the forms. Default: the live CRM. Override at build time. */
+const intake = import.meta.env.PUBLIC_CRM_INTAKE_URL ?? 'https://crm.testsandfunnels.com/api/intake';
+const slots = intake ? (import.meta.env.PUBLIC_CRM_SLOTS_URL || intake.replace(/\/api\/intake\/?$/, '/api/slots')) : '';
 const tfConfig =
-  `window.TF={"formEndpoint":"${formEndpoint}","wa":"917507994138",` +
-  `"phone":"+91 75079 94138","email":"admin@testsandfunnels.com",` +
-  `"auditHref":"/free-business-audit/"};`;
+  'window.TF=' +
+  JSON.stringify({
+    intake,
+    slots,
+    wa: '917507994138',
+    phone: '+91 75079 94138',
+    email: 'admin@testsandfunnels.com',
+    auditHref: '/free-business-audit/',
+    /* Fallback booking hours (India time) shown until the CRM answers /api/slots.
+       Keep in step with Settings > Booking hours in the CRM. */
+    hours: { days: [1, 2, 3, 4, 5, 6], start: '11:00', end: '18:00', step: 30, lead: 3, ahead: 14 },
+  }) +
+  ';';
+
+/* Mark the current top-level nav item (the page tells us which one). */
+const header = navCurrent
+  ? pre.replace(`href="${navCurrent}" aria-haspopup="true"`, `href="${navCurrent}" aria-haspopup="true" aria-current="page"`)
+  : pre;
 ---
 
 <!doctype html>
@@ -57,30 +81,49 @@ const tfConfig =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#3A4050" />
-    <link rel="canonical" href={canon} />
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} />
+    <meta name="theme-color" content="#383C4F" />
+    {!noindex && <link rel="canonical" href={canon} />}
+
+    {/* Open Graph / Twitter */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="tests&funnels" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canon} />
+    <meta property="og:locale" content="en_IN" />
+    {!noindex && (
+      <>
+        <meta name="author" content="tests&funnels" />
+        <meta property="article:published_time" content={published} />
+        <meta property="article:modified_time" content={modified} />
+        <meta property="og:updated_time" content={modified} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={OG_ALT} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={OG_IMAGE} />
+        <meta name="twitter:image:alt" content={OG_ALT} />
+        <link rel="alternate" type="text/markdown" href={mdHref} />
+      </>
+    )}
+    {noindex && <meta name="twitter:card" content="summary" />}
+    {path === '/' && <link rel="alternate" type="text/plain" href={SITE + '/llms.txt'} title="llms.txt" />}
+    <meta name="color-scheme" content="light dark" />
+
+    {/* Theme (light/dark) and the js flag, before first paint so nothing flashes */}
+    <script is:inline>document.documentElement.classList.add("js");try{var t=localStorage.getItem("tf-theme");if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 
     {/* Favicon (files in public/) */}
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    {/* Open Graph / social */}
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="tests&funnels" />
-    <meta property="og:title" content={ogTitle || title} />
-    {(ogDescription || description) && (
-      <meta property="og:description" content={ogDescription || description} />
-    )}
-    <meta property="og:url" content={canon} />
-    <meta property="og:locale" content="en_IN" />
-    <meta name="twitter:card" content="summary" />
-
-    {/* Progressive-enhancement flag the CSS keys off of (hidden until JS runs) */}
-    <script is:inline>document.documentElement.classList.add("js")</script>
 
     {/* Fonts. TODO: self-host via Fontsource to drop the third-party request. */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -96,7 +139,7 @@ const tfConfig =
 
   <body data-page-type={pageType}>
     {/* Shared chrome before the page content */}
-    <Fragment set:html={pre} />
+    <Fragment set:html={header} />
 
     {/* The page supplies its own <main> here */}
     <slot />

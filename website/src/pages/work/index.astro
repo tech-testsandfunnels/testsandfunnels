@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /work/.
-   Page content lives in src/html/work.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /work/ : thin wrapper. Content is src/html/work.html (raw <main>),
+   structured data is src/html/work.jsonld.html. Meta lives in the props below. */
 import Layout from '../../layouts/Layout.astro';
 import main from '../../html/work.html?raw';
 import jsonLd from '../../html/work.jsonld.html?raw';
 ---
 <Layout
-  title={"Digital Marketing Case Studies | tests&funnels"}
-  description={"Digital marketing case studies from tests&funnels: Sparc Lights, Suit Up by Kailash Talreja and Ayurvishwa Healthcare, with the source of every figure."}
-  canonical={"https://testsandfunnels.com/work/"}
-  ogTitle={"Digital Marketing Case Studies | tests&funnels"}
-  ogDescription={"Digital marketing case studies from tests&funnels: Sparc Lights, Suit Up by Kailash Talreja and Ayurvishwa Healthcare, with the source of every figure."}
-  pageType={"work"}
+  title="Case Studies and Media Portfolio | tests&funnels"
+  description="Work from tests&funnels: digital marketing case studies for Sparc Lights, Suit Up and Ayurvishwa, plus a media portfolio of photo, video and UGC."
+  pageType="work"
+  navCurrent="/work/"
+  keywords="marketing case studies, digital marketing portfolio, media portfolio, Sparc Lights case study, Suit Up case study, Ayurvishwa case study"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

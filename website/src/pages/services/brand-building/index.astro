@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /services/brand-building/.
-   Page content lives in src/html/services__brand-building.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /services/brand-building/ : thin wrapper. Content is src/html/services__brand-building.html (raw <main>),
+   structured data is src/html/services__brand-building.jsonld.html. Meta lives in the props below. */
 import Layout from '../../../layouts/Layout.astro';
 import main from '../../../html/services__brand-building.html?raw';
 import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 ---
 <Layout
-  title={"Brand Building Agency in Delhi | tests&funnels"}
-  description={"Brand building agency in Delhi: research, positioning, brand voice, messaging, design and storytelling that build recognition and trust."}
-  canonical={"https://testsandfunnels.com/services/brand-building/"}
-  ogTitle={"Brand Building Agency in Delhi | tests&funnels"}
-  ogDescription={"Brand building agency in Delhi: research, positioning, brand voice, messaging, design and storytelling that build recognition and trust."}
-  pageType={"service"}
+  title="Brand Building Agency in Delhi | tests&funnels"
+  description="Brand building agency in Delhi: research, positioning, brand voice, messaging, design and storytelling that build recognition and trust."
+  pageType="service"
+  navCurrent="/services/"
+  keywords="brand building agency Delhi, brand positioning, brand voice, brand messaging, brand storytelling, branding agency Delhi, brand research"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

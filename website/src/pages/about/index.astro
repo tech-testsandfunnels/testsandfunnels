@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /about/.
-   Page content lives in src/html/about.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /about/ : thin wrapper. Content is src/html/about.html (raw <main>),
+   structured data is src/html/about.jsonld.html. Meta lives in the props below. */
 import Layout from '../../layouts/Layout.astro';
 import main from '../../html/about.html?raw';
 import jsonLd from '../../html/about.jsonld.html?raw';
 ---
 <Layout
-  title={"About tests&funnels: Team and Approach"}
-  description={"About tests&funnels, a Delhi agency led by Shrey Talreja and Soyam Aggarwal with Pinky Dhingra as Business Head: AI agents, media and ventures."}
-  canonical={"https://testsandfunnels.com/about/"}
-  ogTitle={"About tests&funnels: Team and Approach"}
-  ogDescription={"About tests&funnels, a Delhi agency led by Shrey Talreja and Soyam Aggarwal with Pinky Dhingra as Business Head: AI agents, media and ventures."}
-  pageType={"about"}
+  title="About tests&funnels: Team and Approach"
+  description="About tests&funnels, a Delhi agency led by Shrey Talreja and Soyam Aggarwal with Pinky Dhingra as Business Head: AI agents, media and ventures."
+  pageType="about"
+  navCurrent="/about/"
+  keywords="about tests&funnels, Shrey Talreja, Soyam Aggarwal, Pinky Dhingra, Delhi marketing agency team, AI agency founders, agency approach"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

@@ -36,7 +36,7 @@ const defaultKind = (p) => ({ services: 'Free Business Audit call', production: 
 
 /* Pretty labels for form fields kept on the lead. */
 const LABEL = {
-  topic: 'Topic', message: 'Message', format: 'Format', status: 'Status', city: 'City', mode: 'Mode', goal: 'Goal', stage: 'Stage',
+  interest: 'Interest', topic: 'Topic', message: 'Message', format: 'Format', status: 'Status', city: 'City', mode: 'Mode', goal: 'Goal', stage: 'Stage',
   utm_source: 'Source', utm_medium: 'Medium', utm_campaign: 'Campaign', utm_term: 'Term', utm_content: 'Content', gclid: 'Google click id',
   fbclid: 'Meta click id', landing_page: 'Landing page', referrer: 'Referrer', source_page: 'Form page',
 };
@@ -81,7 +81,7 @@ function LeadDlg({ id, close, open }) {
             {stages.map((s, i) => <option key={s} value={i}>{s}</option>)}
           </select>
         </dd>
-        {l.company && <><dt>{l.pillar === 'training' ? 'Background' : 'Company'}</dt><dd>{l.company}</dd></>}
+        {l.company && <><dt>{l.pillar === 'training' ? 'Background' : l.pillar === 'incubation' ? 'Venture' : 'Company'}</dt><dd>{l.company}</dd></>}
         <dt>Phone</dt>
         <dd>{l.phone ? <><a href={'tel:' + (l.phoneNormalised || l.phone)}>{l.phone}</a>{wa && <> · <a href={'https://wa.me/' + wa} target="_blank" rel="noopener noreferrer">WhatsApp</a></>}</> : '–'}</dd>
         <dt>Email</dt><dd>{l.email ? <a href={'mailto:' + l.email}>{l.email}</a> : '–'}</dd>

@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /incubation/.
-   Page content lives in src/html/incubation.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /incubation/ : thin wrapper. Content is src/html/incubation.html (raw <main>),
+   structured data is src/html/incubation.jsonld.html. Meta lives in the props below. */
 import Layout from '../../layouts/Layout.astro';
 import main from '../../html/incubation.html?raw';
 import jsonLd from '../../html/incubation.jsonld.html?raw';
 ---
 <Layout
-  title={"Startup Incubator in Delhi: Incube8 | tests&funnels"}
-  description={"Startup incubator in Delhi NCR: Incube8 offers training, validation, acceleration, office space and funding, backed by VivoCorp and GeMTech PARAS."}
-  canonical={"https://testsandfunnels.com/incubation/"}
-  ogTitle={"Startup Incubator in Delhi: Incube8 | tests&funnels"}
-  ogDescription={"Startup incubator in Delhi NCR: Incube8 offers training, validation, acceleration, office space and funding, backed by VivoCorp and GeMTech PARAS."}
-  pageType={"pillar"}
+  title="Startup Incubator in Delhi: Incube8 | tests&funnels"
+  description="Startup incubator in Delhi NCR: Incube8 offers training, validation, acceleration, office space and funding, backed by VivoCorp and GeMTech PARAS."
+  pageType="pillar"
+  navCurrent="/incubation/"
+  keywords="startup incubator Delhi, Incube8, startup incubation Delhi NCR, startup funding, startup acceleration, office space for startups, VivoCorp, GeMTech PARAS"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

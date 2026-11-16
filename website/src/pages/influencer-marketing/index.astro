@@ -1,18 +1,16 @@
 ---
-/* Auto-generated faithful port of /influencer-marketing/.
-   Page content lives in src/html/influencer-marketing.html (injected as raw HTML).
-   Next pass: refactor this <main> into reusable section components. */
+/* /influencer-marketing/ : thin wrapper. Content is src/html/influencer-marketing.html (raw <main>),
+   structured data is src/html/influencer-marketing.jsonld.html. Meta lives in the props below. */
 import Layout from '../../layouts/Layout.astro';
 import main from '../../html/influencer-marketing.html?raw';
 import jsonLd from '../../html/influencer-marketing.jsonld.html?raw';
 ---
 <Layout
-  title={"Influencer Marketing Agency in Delhi | tests&funnels"}
-  description={"Influencer marketing agency in Delhi: creator shortlists, outreach, briefs, approvals and per-creator tracking of clicks, leads and sales."}
-  canonical={"https://testsandfunnels.com/influencer-marketing/"}
-  ogTitle={"Influencer Marketing Agency in Delhi | tests&funnels"}
-  ogDescription={"Influencer marketing agency in Delhi: creator shortlists, outreach, briefs, approvals and per-creator tracking of clicks, leads and sales."}
-  pageType={"pillar"}
+  title="Influencer Marketing Agency in Delhi | tests&funnels"
+  description="Influencer marketing agency in Delhi: creator shortlists, outreach, briefs, approvals and per-creator tracking of clicks, leads and sales."
+  pageType="pillar"
+  navCurrent="/production-house/"
+  keywords="influencer marketing agency Delhi, influencer campaigns, creator outreach, influencer briefs, influencer tracking, influencer marketing India"
   jsonLd={jsonLd}
 >
   <Fragment set:html={main} />

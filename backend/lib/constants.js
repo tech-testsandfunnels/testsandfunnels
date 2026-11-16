@@ -49,7 +49,7 @@ const ATTRIBUTION_KEYS = [
   'gclid', 'fbclid', 'landing_page', 'referrer', 'source_page',
 ];
 /* Form fields kept "as typed" under the lead's interest and notes (spec 5, Lead). */
-const INTEREST_KEYS = ['topic', 'message', 'format', 'status', 'city', 'mode', 'goal', 'stage'];
+const INTEREST_KEYS = ['interest', 'topic', 'message', 'format', 'status', 'city', 'mode', 'goal', 'stage'];
 
 module.exports = {
   PILLARS, PILLAR_KEYS, WON, LOST, SOURCES,
