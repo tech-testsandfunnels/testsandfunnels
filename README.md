@@ -47,6 +47,17 @@ The dashboard proxies `/api` to the backend. Log in with the credentials in `bac
 
   The backend serves the built dashboard, so one service hosts the whole CRM.
 
+### Build & deploy (single URL)
+
+The API serves the built CRM from `backend/public`, so **one service** hosts
+everything (API at `/api/*`, the CRM at `/`).
+
+```bash
+cd backend && npm install && npm run build && npm start   # http://localhost:5000
+```
+
+`npm run build` (in `backend/`) installs the frontend and runs Vite, which writes into `backend/public`. On any Node host (Render without the Blueprint, Railway, a VPS), set **root directory** `backend`, **build command** `npm install && npm run build`, **start command** `npm start`. If `/` shows "CRM dashboard is not built", the build command skipped `npm run build`.
+
 ## Sending website leads into the CRM
 
 Once the backend is hosted, set `formEndpoint` in `src/layouts/Layout.astro` to its public `…/api/leads` URL. Until then the site's forms fall back to a prefilled WhatsApp message.

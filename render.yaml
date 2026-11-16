@@ -14,10 +14,11 @@ services:
     runtime: node
     plan: free
     autoDeploy: true
-    # Install both apps, build the dashboard. --include=dev is needed because
-    # Vite/Tailwind are devDependencies and Render installs with NODE_ENV=production.
-    buildCommand: cd backend && npm install && cd ../frontend && npm install --include=dev && npm run build
-    # The backend serves ../frontend/dist, so one process hosts the whole app.
+    # Install the API, then build the dashboard into backend/public.
+    # (--include=dev inside the build script is needed because Vite/Tailwind are
+    # devDependencies and Render installs with NODE_ENV=production.)
+    buildCommand: cd backend && npm install && npm run build
+    # The backend serves backend/public at "/", so one process hosts the whole app.
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_VERSION

@@ -28,3 +28,6 @@ Desktop.ini
 # Archives
 *.zip
 *.tar.gz
+
+# CRM dashboard build output (served by the API)
+backend/public/
