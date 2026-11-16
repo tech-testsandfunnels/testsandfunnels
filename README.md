@@ -73,7 +73,7 @@ everything (API at `/api/*`, the CRM at `/`). It needs a Node host **and** Mongo
   1. **Atlas**: create a cluster and a database user, set Network Access to `0.0.0.0/0`, copy the connection string.
   2. **Render**: New → **Blueprint** → this repo. It reads `render.yaml`. Set `MONGODB_URI` and `ADMIN_PASSWORD` when asked.
   3. Open the Render URL and log in with `admin` / your `ADMIN_PASSWORD`.
-- **Any other Node host** (Hostinger Node.js apps, Railway, a VPS): from the repo root, build `npm run build`, start `npm start` (root `package.json`). Or with root directory `backend`: build `npm install && npm run build`, start `npm start`. Set the environment variables from `backend/.env.example`.
+- **Any other Node host** (Hostinger Node.js apps, Railway, a VPS): root directory `/`, install `npm install`, build `npm run build`, entry `server.js` / start `npm start` (root `package.json` lists the server packages, so the host's own install is enough). Or with root directory `backend`: build `npm install && npm run build`, start `npm start`. Set the environment variables from `backend/.env.example`.
 
 If `/` says "CRM dashboard is not built", the build command skipped `npm run build`.
 
