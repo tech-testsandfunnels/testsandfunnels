@@ -1,9 +1,10 @@
 # Dependencies
 node_modules/
 
-# Astro build output and generated types
+# Build output and generated types
 dist/
 .astro/
+backend/public/
 
 # Environment variables
 .env

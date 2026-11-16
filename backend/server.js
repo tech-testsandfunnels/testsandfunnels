@@ -24,8 +24,9 @@ app.use('/api/leads', require('./routes/leadRoutes'));
 app.use('/api/appointments', require('./routes/appointmentRoutes'));
 app.get('/api/health', (req, res) => res.json({ ok: true, db: isConnected() ? 'connected' : 'disconnected' }));
 
-/* Serve the built dashboard in production (skipped during dev, when it is absent) */
-const dist = path.join(__dirname, '..', 'frontend', 'dist');
+/* Serve the built dashboard from backend/public (the frontend builds into it).
+   Skipped in dev, when it is absent and the Vite server serves the UI instead. */
+const dist = path.join(__dirname, 'public');
 if (fs.existsSync(dist)) {
   app.use(express.static(dist));
   app.get('*', (req, res) => res.sendFile(path.join(dist, 'index.html')));

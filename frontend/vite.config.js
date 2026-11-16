@@ -7,6 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    // Build straight into the backend so it serves the dashboard and the whole
+    // app ships as one Node service ("host only the backend").
+    outDir: '../backend/public',
+    emptyOutDir: true,
+  },
   server: {
     port: 5173,
     proxy: { '/api': 'http://localhost:5000' },
