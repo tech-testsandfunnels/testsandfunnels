@@ -41,7 +41,9 @@ app.use('/api/appointments', auth, require('./routes/appointments'));
 app.use('/api', auth, require('./routes/misc'));
 app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }));
 
-/* The built dashboard. `npm run build` (in backend/) writes it to backend/public. */
+/* The built dashboard. It is committed in backend/public so hosts that skip the
+   build step still serve it. After changing frontend/, run `npm run build`
+   (repo root) and commit backend/public. */
 const pub = path.join(__dirname, 'public');
 const indexHtml = path.join(pub, 'index.html');
 app.use(express.static(pub, { index: false, maxAge: '1h' }));
@@ -50,7 +52,7 @@ app.get('*', (req, res) => {
   res
     .status(503)
     .type('text')
-    .send('CRM dashboard is not built. Run "npm run build" in backend/ (or set the host build command to "npm install && npm run build").');
+    .send('CRM dashboard is not built. Run "npm run build" in the repo root and commit backend/public.');
 });
 
 /* Bad JSON, too-large bodies and anything unexpected: always answer in JSON. */

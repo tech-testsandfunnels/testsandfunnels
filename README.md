@@ -75,7 +75,7 @@ everything (API at `/api/*`, the CRM at `/`). It needs a Node host **and** Mongo
   3. Open the Render URL and log in with `admin` / your `ADMIN_PASSWORD`.
 - **Any other Node host** (Hostinger Node.js apps, Railway, a VPS): root directory `/`, install `npm install`, build `npm run build`, entry `server.js` / start `npm start` (root `package.json` lists the server packages, so the host's own install is enough). Or with root directory `backend`: build `npm install && npm run build`, start `npm start`. Set the environment variables from `backend/.env.example`.
 
-If `/` says "CRM dashboard is not built", the build command skipped `npm run build`.
+The built dashboard is committed in `backend/public`, so the host does not need to run the build. **After changing anything in `frontend/`, run `npm run build` in the repo root and commit `backend/public`.**
 
 Optional: point a subdomain such as `crm.testsandfunnels.com` at the CRM host and set `PUBLIC_URL` to it.
 
