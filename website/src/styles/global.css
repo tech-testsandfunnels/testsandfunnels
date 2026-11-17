@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* === t&f design system (light + dark), from the 2026-11-14 site build. ===
+/* === Site design system (light + dark), from the site build. ===
    Every class the pages use. Brand tokens are the custom properties on :root. */
 :root{
   --ink:#383C4F;

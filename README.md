@@ -1,5 +1,7 @@
 # tests&funnels
 
+> **Starting a new site from this repo?** Read [start.md](start.md) first.
+
 Two apps in one repo:
 
 - **Marketing site** — Astro static site (the public website). Deploys to Hostinger.
@@ -10,7 +12,8 @@ website/     Astro marketing site (src/, public/, astro.config.mjs; legacy/ = ol
 backend/     Express + MongoDB API for the CRM; serves the built dashboard at /
 frontend/    React (Vite) dashboard for the CRM (builds into backend/public)
 docs/        intake-spec.md: what the website forms send the CRM (tf-intake/1)
-tools/       mock-intake.js: reference intake server for testing the forms
+tools/       mock-intake.js (reference intake server for testing the forms), port-site.py (static site build -> website/)
+start.md     checklist for launching a new website + CRM from this repo
 ```
 
 Design + internals: [brandkit.md](brandkit.md) (look & feel), [agent.md](agent.md) (marketing-site internals), [docs/intake-spec.md](docs/intake-spec.md) (website to CRM).
