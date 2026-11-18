@@ -1,0 +1,19 @@
+---
+/* /ai-automation/web-development-and-seo-agent/ : thin wrapper. Content is src/html/ai-automation__web-development-and-seo-agent.html (raw <main>),
+   structured data is src/html/ai-automation__web-development-and-seo-agent.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/ai-automation__web-development-and-seo-agent.html?raw';
+import jsonLd from '../../../html/ai-automation__web-development-and-seo-agent.jsonld.html?raw';
+---
+<Layout
+  title="AI Web Development and SEO Agent: AEO, GEO | tests&funnels"
+  description="AI web development and SEO agent that builds fast, tracked pages and handles SEO, AEO, AIO and GEO, so search and AI engines can find and cite you."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="AI web development agent, AI SEO agent, AEO, GEO, AIO, answer engine optimization, landing page automation, AI search optimization"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

@@ -648,6 +648,530 @@ tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@tes
 
 ========================================================================
 
+# Market research agent: your market, competitors and customers, with sources
+
+Our AI market research agent gathers what is publicly known about your market, your competitors and your customers, and summarizes it with a source for every finding, so strategy starts from evidence instead of guesses.
+
+Our market research agent researches your market, competitors, customer segments and benchmark metrics, the same inputs as the industry part of our audit, and lists the source of every finding. A person at t&f checks the sources and the conclusions before they shape a strategy.
+
+## What the agent researches
+
+### Market and category
+
+How your category is searched, talked about and bought.
+
+- What customers search for and ask
+- Trends and seasonality in the category
+- Where the demand sits: channels and regions
+
+### Competitors
+
+Who you are up against and how they present themselves.
+
+- Positioning, offers and pricing pages
+- Ads they run in public ad libraries
+- Their content, reviews and gaps
+
+### Customer segments
+
+Who buys, why, and what stops them.
+
+- Segments and the problems each one has
+- Questions and objections from reviews and comments
+- The words customers use, for ads and pages
+
+### Benchmark metrics
+
+Comparison points for your own numbers.
+
+- Published benchmarks, each with its source
+- Your own data next to them, where you share it
+- Marked as an estimate where no source exists
+
+## Where the research goes next
+
+### Into the audit
+
+It is the industry part of the Free Business Audit, the first thing the audit looks at.
+
+[Auditing agent](https://testsandfunnels.com/ai-automation/auditing-agent/)
+
+### Into the tests
+
+Findings become hypotheses for ads, pages and messages. The tests decide what is true for your customers.
+
+[Advertising agents](https://testsandfunnels.com/ai-automation/advertising-agents/)
+
+### Into validation
+
+For ventures in Incube8, it frames what to test on demand, positioning and unit economics before real customer data does the rest.
+
+[Incube8](https://testsandfunnels.com/incubation/)
+
+## Research you can check
+
+- Every finding lists where it came from, so you can open the source yourself.
+- Estimates are labelled as estimates.
+- A person at t&f reads the summary, checks the sources and decides what goes into your strategy.
+- Research gives the hypotheses; tests with your real customers decide.
+
+## Questions about the market research agent
+
+### Where does the market research agent get its information?
+
+From public sources such as search results, competitors' websites, public ad libraries, reviews, social comments and published reports, plus any sales or CRM data you share. Each finding lists its source.
+
+### Can AI market research replace talking to customers?
+
+No. It narrows down what to ask and what to test. What customers actually do, in tests and in real sales data, is what decides the strategy.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [Auditing agent](https://testsandfunnels.com/ai-automation/auditing-agent/)
+- [Industries](https://testsandfunnels.com/industries/)
+- [Incube8](https://testsandfunnels.com/incubation/)
+
+## Start with research on your market
+
+Request the audit. The research on your industry and competitors is where it begins.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/market-research-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Auditing agent: every stage of your funnel checked, manual steps marked
+
+Our AI auditing agent runs the checks behind the Free Business Audit, from your visibility to your retention, and marks which steps are still done by hand, so the audit report reaches you faster and covers every stage.
+
+Our auditing agent runs the checks behind the Free Business Audit: your industry, visibility, lead capture, nurturing, management and retention, and it marks which steps are still done by hand and could move to an agent. A person at t&f reviews the findings and presents the strategy.
+
+## What the auditing agent checks
+
+| Stage        | What the agent checks                                                                                                                                             |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Industry     | Market, competitors, customer segments and benchmark metrics, from the [market research agent](https://testsandfunnels.com/ai-automation/market-research-agent/). |
+| Visibility   | Search results, AI answers, ad accounts, social profiles and local listings.                                                                                      |
+| Lead capture | Landing pages, forms, offers, page speed, tracking and conversion events.                                                                                         |
+| Nurturing    | Email and WhatsApp follow-up, automations and how fast enquiries get a reply.                                                                                     |
+| Management   | How leads are handled and tracked, the CRM and the reporting.                                                                                                     |
+| Retention    | Repeat purchase or re-engagement, reviews and loyalty.                                                                                                            |
+
+## What you get
+
+### An audit report
+
+The gaps at each stage, with what was checked and what was found.
+
+### The manual steps
+
+Which steps are still done by hand and which could move to an agent first.
+
+### A starting point
+
+The strategy and action plan start from the report. See [how we work](https://testsandfunnels.com/how-we-work/).
+
+## Agent checks, people decide
+
+### What the agent does
+
+It runs the same checks on every stage, every time, and drafts the findings. The same checks can be run again after changes, so you compare against the first audit.
+
+### What stays with people
+
+- Your brief, collected by a person before the audit starts.
+- Reviewing every finding and adding what only a conversation can uncover.
+- The strategy and action plan we pitch from the report.
+
+## Questions about the auditing agent
+
+### Is the Free Business Audit done by an AI agent?
+
+The agent runs the checks and drafts the findings. A person at t&f collects your brief first, reviews the findings, adds what only a conversation can uncover and presents the strategy.
+
+### What access does the auditing agent need?
+
+Public checks, such as search, AI answers, social profiles and your website, need none. For ad accounts, analytics, Tag Manager or a CRM we ask for read access, and only where the audit needs it.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [Free Business Audit](https://testsandfunnels.com/free-business-audit/)
+- [How we work](https://testsandfunnels.com/how-we-work/)
+- [Market research agent](https://testsandfunnels.com/ai-automation/market-research-agent/)
+
+## Put your funnel through the audit
+
+Tell us about your business. We collect your brief, then the audit checks every stage.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/auditing-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Web development and SEO agent: pages built to rank, answer and convert
+
+Our AI web development and SEO agent builds and maintains your pages and makes them easy to find in Google, in direct answers and in AI-generated answers (SEO, AEO, AIO and GEO), with tracking set up from day one.
+
+Our web development and SEO agent builds websites and landing pages, keeps them fast and tracked, and does the technical SEO, answer engine optimization (AEO) and AI search optimization (AIO and GEO) work: titles, structured data, direct answers and files for AI crawlers. People review every page before it goes live.
+
+## Two jobs, one agent
+
+### Web development
+
+Pages that are ready when the campaign is.
+
+- Websites and landing pages on WordPress, Shopify or custom HTML
+- Fast loading on mobile
+- Tag Manager and analytics events set up before launch
+- Landing page variations to test against each other
+
+### SEO, AEO, AIO and GEO
+
+Pages that search engines and AI answer engines can read, quote and attribute.
+
+- Technical SEO: titles, descriptions, internal links, sitemaps
+- Structured data (schema) for your business and pages
+- A direct answer at the top of each page
+- llms.txt, Markdown copies and AI crawler rules
+
+## SEO, AEO, AIO and GEO in plain words
+
+This site is built the same way: every page has a direct answer under its heading, structured data, a Markdown copy and an entry in llms.txt. For the strategy side, see [visibility optimization](https://testsandfunnels.com/services/visibility-optimization/).
+
+| Term | What it means                                                            | What the agent does                                                              |
+|------|--------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| SEO  | Ranking in search results                                                | Technical fixes, page titles, internal links and content structure               |
+| AEO  | Being the direct answer in search and voice                              | Short answers and FAQs written so they can be lifted whole                       |
+| AIO  | Appearing in Google AI Overviews and AI Mode                             | Clear, sourced pages that are easy to summarize                                  |
+| GEO  | Being named and cited by ChatGPT, Perplexity, Gemini, Claude and Copilot | Consistent facts about your business, structured data and files AI crawlers read |
+
+## Measured, every month
+
+- Rankings and clicks from Search Console.
+- A monthly check of the questions your customers would ask AI engines, recording whether you are mentioned, cited or neither.
+- Visits from AI engines tracked as their own channel in GA4.
+- Wrong facts in AI answers fixed at the page they come from.
+
+No one can promise rankings or AI citations, and we do not. We show the work and the measurement.
+
+## Questions about the web development and SEO agent
+
+### What is the difference between AIO and GEO?
+
+AIO is about appearing in Google's AI Overviews and AI Mode. GEO is about being understood and cited by generative AI engines such as ChatGPT, Perplexity, Gemini, Claude and Copilot. The same clear, structured, sourced pages help with both.
+
+### Can an AI agent build my whole website?
+
+Agents handle much of the build: pages, technical SEO, structured data and tracking. People set the structure and the design, and review every page before it goes live.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [Website development](https://testsandfunnels.com/services/website-development/)
+- [Visibility optimization](https://testsandfunnels.com/services/visibility-optimization/)
+- [Advertising agents](https://testsandfunnels.com/ai-automation/advertising-agents/)
+
+## See how visible your brand is, in search and in AI answers
+
+The audit checks your search, local and AI visibility and your pages' speed and tracking.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/web-development-and-seo-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Outreach agent: cold outreach that starts real conversations
+
+Our AI outreach agent builds prospect lists around your ideal customer, writes personalised first messages and follow-ups on email, WhatsApp and social DMs, and logs every reply, so your team spends its time on prospects who answered.
+
+Our outreach agent runs B2B cold outreach: it sources prospects that match your ideal customer, sends personalised messages and follow-ups on email, WhatsApp and social DMs within each channel's rules, and logs replies in your CRM, aiming for booked demos. Conversations that need a person go to a person.
+
+## From list to booked demo
+
+1.  ### Data sourcing
+
+    Lists built around your ideal customer, with a record of where each contact came from.
+
+2.  ### Personalisation
+
+    A first message written for the segment, with a line about the prospect's own business.
+
+3.  ### Sequences
+
+    Follow-ups spaced out, and stopped the moment someone replies or opts out.
+
+4.  ### Channels
+
+    Email, WhatsApp and social DMs, chosen by where your buyers respond.
+
+5.  ### CRM logging
+
+    Every send, reply and outcome recorded against the contact.
+
+6.  ### Demo booking
+
+    The goal of every sequence: a conversation on the calendar.
+
+## Outreach that stays within the rules
+
+- Each channel's rules are followed, including WhatsApp's business messaging rules.
+- Every message gives a way to opt out, and opt-outs are honoured straight away.
+- Where each contact came from is recorded. Check your consent notice against India's DPDP Act with your own adviser.
+- You approve the segments, the message templates and a sample of messages before launch.
+
+## After the reply
+
+### Sales agents
+
+Interested replies move to follow-up and tele-call workflows.
+
+[Sales agents](https://testsandfunnels.com/ai-automation/sales-agents/)
+
+### Your team
+
+Conversations that need a person are passed to one, with the history attached.
+
+[Sales services](https://testsandfunnels.com/services/sales-services/)
+
+### Influencer outreach
+
+Outreach to creators is run by the social media agents as part of a campaign.
+
+[Social media agents](https://testsandfunnels.com/ai-automation/social-media-agents/)
+
+## Questions about the outreach agent
+
+### How personal are the messages an outreach agent sends?
+
+Each first message is written for the segment and refers to something specific about the prospect's business. You approve the templates and a sample before anything is sent.
+
+### What happens when a prospect replies?
+
+The reply is logged in your CRM and the sequence stops for that contact. Interested prospects move to follow-up, and conversations that need a person are passed to one.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [Cold outreach](https://testsandfunnels.com/services/cold-outreach/)
+- [Sales agents](https://testsandfunnels.com/ai-automation/sales-agents/)
+- [Influencer marketing](https://testsandfunnels.com/influencer-marketing/)
+
+## Find out who your outreach should reach first
+
+The audit looks at your list sources, messaging and follow-up, and where an agent can take over.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/outreach-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Graphic design agent: on-brand creatives, in every size you need
+
+Our AI graphic design agent makes ad creatives, social posts, carousels, thumbnails and banners from your brand guidelines, in the variations your tests need and the sizes each placement needs, and a person reviews every design before it is used.
+
+Our graphic design agent makes static ad creatives, social posts, carousels, thumbnails, banners and page graphics in your brand style, resized for each placement and varied for A/B tests. It works from your brand guidelines, and a person at t&f reviews every design before it is used.
+
+## What the agent designs
+
+### Ad creatives
+
+Static ads for Meta, Google and LinkedIn.
+
+- Variations of headline, image and offer for A/B tests
+- Built from ads that already work
+- Handed to the advertising agents to run
+
+### Social posts and carousels
+
+Posts planned in the content calendar.
+
+- Single posts, carousels and story frames
+- Templates that keep the feed consistent
+- Scheduled by the social media agents
+
+### Thumbnails and covers
+
+The first frame people see.
+
+- YouTube thumbnails and Reel covers
+- Readable at small sizes
+- Tested where the platform allows
+
+### Website and landing page graphics
+
+Visuals for the pages your ads land on.
+
+- Banners, section graphics and icons
+- Compressed for fast loading
+- Matched to the campaign the page belongs to
+
+## One design, every placement
+
+- 1:1 feed
+- 4:5 feed
+- 9:16 stories and reels
+- 16:9 video and web
+- Banners
+
+Each approved design is resized for every placement it will run in, so the text, logo and product stay inside the safe area on each one.
+
+## How we keep it on brand and safe
+
+- The agent works from your brand guidelines: logo, colours, fonts and templates.
+- A person reviews every design before it goes into an ad or a post.
+- Products are checked against the real product, so colours and details are accurate.
+- AI-generated imagery is labelled where platform rules require it.
+- For doctors, clinics and hospitals, we do not use AI imagery to show patients or treatment results.
+
+Where the exact look of a product matters, we recommend a shoot: see [AI visuals and video](https://testsandfunnels.com/production-house/ai-visuals-and-video/) for when to use AI and when to shoot.
+
+## Questions about the graphic design agent
+
+### Does a graphic design agent replace a designer?
+
+It handles first drafts, variations and resizing, which is most of the repeat work. A designer at t&f sets the direction and reviews every design before it is used.
+
+### What if my brand has no guidelines?
+
+We put them together first, as part of brand building: logo use, colours, fonts and a few templates. The agent then works from those.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [AI visuals and video](https://testsandfunnels.com/production-house/ai-visuals-and-video/)
+- [Social media agents](https://testsandfunnels.com/ai-automation/social-media-agents/)
+- [Brand building](https://testsandfunnels.com/services/brand-building/)
+
+## See how many creatives your tests could use
+
+The audit looks at your ads and channels and marks which creative steps an agent can take over.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/graphic-design-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Video editing agent: raw footage to reels, ads and cut-downs
+
+Our AI video editing agent turns footage from shoots, UGC creators and screen recordings into reels, ad cuts and longer edits, with captions, music and your brand elements, in every format the channels need.
+
+Our video editing agent cuts raw footage into reels, ads and longer edits: it trims, adds captions, music and brand elements, and makes a 16:9 master with 9:16 and other cut-downs, plus hook and length variations for testing. A person at t&f reviews every cut before it is published.
+
+## What the agent edits
+
+### Reels and shorts
+
+Short-form video for Instagram, YouTube and LinkedIn.
+
+- Tight cuts with a hook in the first seconds
+- Captions burned in
+- Covers from the graphic design agent
+
+### Ad cuts
+
+Versions of one ad for testing.
+
+- Different hooks, lengths and captions
+- Cut for each placement
+- Results decide which version runs
+
+### Longer edits
+
+Brand films, explainers, podcasts and founder videos.
+
+- A 16:9 master
+- 9:16 and 1:1 cut-downs from the same footage
+- Clips for the content calendar
+
+## From footage to published
+
+1.  ### Footage in
+
+    From our [production house](https://testsandfunnels.com/production-house/), [UGC](https://testsandfunnels.com/production-house/ugc/) creators, your phone or screen recordings.
+
+2.  ### First cut
+
+    The agent selects takes, trims, and adds captions, music and brand elements.
+
+3.  ### Review
+
+    A person at t&f checks the cut against the brief, the brand and the platform's rules.
+
+4.  ### Every format, then live
+
+    The approved cut is exported for each placement and handed to the [social media agents](https://testsandfunnels.com/ai-automation/social-media-agents/) to publish, or the advertising agents to run.
+
+## Rights and review
+
+- Music and stock footage come from sources licensed for where the video will run.
+- Creators and people on camera have agreed to how the footage is used.
+- Paid collaborations are disclosed on screen and in the caption.
+- Nothing is published until a person has reviewed the final cut.
+
+## Questions about the video editing agent
+
+### What footage can the video editing agent work with?
+
+Footage from our own shoots, UGC creators, phone videos you record, screen recordings and existing brand videos. Longer footage can be cut into many short clips.
+
+### Can it make several versions of one ad for testing?
+
+Yes. It cuts the same footage into versions with different hooks, lengths and captions, and the test results decide which version keeps running.
+
+### Related
+
+- [All AI agents](https://testsandfunnels.com/ai-automation/)
+- [Social media agents](https://testsandfunnels.com/ai-automation/social-media-agents/)
+- [UGC](https://testsandfunnels.com/production-house/ugc/)
+- [Production house](https://testsandfunnels.com/production-house/)
+
+## Find out how much of your editing an agent can take over
+
+The audit looks at your content workflow and marks the steps that are still done by hand.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/ai-automation/video-editing-agent/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
 # Production house for realistic media, UGC, influencer marketing and personal branding
 
 We are a production house in Delhi. We make the media your brand runs on: photo, video and AI visuals that look real, creator-style UGC, influencer campaigns and personal brands. We plan the media once, with reuse in mind, so one production day feeds many channels and formats.
@@ -2338,6 +2862,135 @@ We follow a patient from the search to the booked appointment and show where enq
 Last updated 14 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
 
 Canonical page: https://testsandfunnels.com/industries/healthcare/
+
+tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
+
+
+========================================================================
+
+# Marketing for edtech, coaches and consultants: from first view to enrolled or signed
+
+t&f is a marketing agency for edtech companies, coaches and consultants. We build the authority, the funnel and the follow-up that turn an audience into booked calls, enrolments and signed clients.
+
+t&f runs founder and expert content, lead campaigns on Meta, Google and LinkedIn, webinar, video sales letter and landing page funnels, and follow-up on email and WhatsApp for edtech companies, coaches and consultants, measured by cost per lead, cost per booked call and how many leads enrol or sign.
+
+## Three businesses, one kind of funnel
+
+### Edtech and course creators
+
+People compare options for weeks before they enrol, so the funnel has to teach and follow up.
+
+- Free class, webinar or video sales letter
+- Counselling call
+- Enrolment, then referrals
+
+### Coaches
+
+People buy the coach before the programme, so trust is built in public first.
+
+- Content that shows how you think
+- A lead magnet or free session
+- Discovery call, then the programme
+
+### Consultants
+
+Buyers are few and senior, so reach is targeted and every lead gets a person.
+
+- Authority content on LinkedIn
+- Targeted outreach to named accounts
+- Discovery call, proposal, signed
+
+## What we run
+
+### Founder and expert content
+
+Positioning, scripts and a repeatable content series in your voice.
+
+[Personal branding](https://testsandfunnels.com/personal-branding/)
+
+### Lead campaigns on Meta, Google and LinkedIn
+
+Campaigns built around booked calls and enrolments, not clicks.
+
+[Performance marketing](https://testsandfunnels.com/services/performance-marketing/)
+
+### Webinar, video sales letter and landing pages
+
+The page or session that does the explaining before the call, with tracking from day one.
+
+[Website development](https://testsandfunnels.com/services/website-development/)
+
+### Follow-up and call booking
+
+Every lead followed up on email and WhatsApp, with a call booked and reminders sent.
+
+[Sales agents](https://testsandfunnels.com/ai-automation/sales-agents/)
+
+### Outreach for consultants
+
+Lists built around your ideal client and personalised first messages that aim for a discovery call.
+
+[Outreach agent](https://testsandfunnels.com/ai-automation/outreach-agent/)
+
+### Search and AI-answer visibility
+
+So you show up when people search, or ask an AI assistant, for a course, a coach or an adviser.
+
+[Visibility optimization](https://testsandfunnels.com/services/visibility-optimization/)
+
+## The numbers we manage to
+
+- Cost per lead
+- Cost per booked call
+- Call show-up rate
+- Lead to enrolment or signed client
+
+## We run this funnel for our own course
+
+t&f sells its own Performance Marketing Training Program the same way: a video sales letter, an application form, a counselling call booked in the same step, and follow-up on WhatsApp. What we learn there goes into the funnels we build for clients.
+
+[See the training funnel](https://testsandfunnels.com/training/)
+
+## What the audit checks for a course, coach or consultant
+
+| Funnel stage | What the audit checks                                                                    |
+|--------------|------------------------------------------------------------------------------------------|
+| Visibility   | Search and AI answers for your topic, your content and channels, paid ads and reviews.   |
+| Lead capture | Webinar, video sales letter and landing pages, lead magnets, forms, and call booking.    |
+| Nurturing    | Email and WhatsApp follow-up, reminders before a session or call, and response time.     |
+| Management   | How leads are tracked from first touch to enrolment or proposal, and who owns each call. |
+| Retention    | Completion, renewals, upsells, referrals and reviews.                                    |
+
+## Claims we keep honest
+
+- No promises of income, jobs, ranks or results that you cannot substantiate.
+- Placement and result figures only with a source you can show, in line with ASCI's code.
+- Student and client testimonials are real, with written consent.
+- Paid partnerships with creators are disclosed.
+
+## Questions from edtech companies, coaches and consultants
+
+### Is a webinar or a video sales letter better for selling a course?
+
+Both can work. We start with the one that fits your price and how much your buyers need to talk to someone before they pay, then test the other.
+
+### Can you market a coach or consultant who has no audience yet?
+
+Yes. Content builds the audience over time, so we run lead campaigns and, for consultants, targeted outreach alongside it, and the calendar does not wait for followers.
+
+### Do you make the ads and the video sales letter?
+
+Yes. Our production house shoots and edits the ads, the content and the video sales letter, and the same team runs the funnel they go into.
+
+## Audit your funnel
+
+We follow a lead from the first view to the enrolment or the signed proposal, and show where they drop off.
+
+---
+
+Last updated 17 November 2026. Reviewed by Shrey Talreja, Co-Founder and Strategy Lead.
+
+Canonical page: https://testsandfunnels.com/industries/edtech-coaches-and-consultants/
 
 tests&funnels, Delhi, India. Phone and WhatsApp +91 75079 94138. Email admin@testsandfunnels.com.
 

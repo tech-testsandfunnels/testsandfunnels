@@ -14,7 +14,7 @@ static HTML site to Astro. If behaviour and this file disagree, the code wins �
 
 - **Static site + separate CRM.** The site itself is static. Every lead form is two steps (details, then pick a call time) and posts `tf-intake/1` events to the CRM (`backend/` + `frontend/`, see README and `docs/intake-spec.md`). The CRM URL comes from the `PUBLIC_CRM_INTAKE_URL` build variable (default: the live CRM); if the CRM is down, forms fall back to a prefilled WhatsApp chat.
 - **Astro static site.** Every route is pre-rendered to plain HTML at build time and deployed as static files to Hostinger. No server runs in production.
-- **Current state = faithful port of the 2026-11-14 site build.** The 38 pages (37 + 404) were ported 1:1 from the static build in `live/` (the Python `sitebuild` output): the exact markup, CSS (light + dark theme) and JS were reused, but the shared chrome (header, nav, footer, scripts, icon sprite) and the stylesheet are defined **once**. Each page's `<main>` is injected as a raw HTML string (`set:html`). Every page also ships a Markdown copy (`/<route>/index.md`), and `llms.txt` / `llms-full.txt` are served from `public/`. The **next pass** is to refactor into real components with Tailwind/shadcn and Framer Motion (see §9).
+- **Current state = faithful port of the 2026-11-14 site build.** The 45 pages (44 + 404; 37 + 404 ported on 2026-11-14, 7 agent and industry pages added on 2026-11-18) were ported 1:1 from the static build in `live/` (the Python `sitebuild` output): the exact markup, CSS (light + dark theme) and JS were reused, but the shared chrome (header, nav, footer, scripts, icon sprite) and the stylesheet are defined **once**. Each page's `<main>` is injected as a raw HTML string (`set:html`). Every page also ships a Markdown copy (`/<route>/index.md`), and `llms.txt` / `llms-full.txt` are served from `public/`. The **next pass** is to refactor into real components with Tailwind/shadcn and Framer Motion (see §9).
 
 ---
 
@@ -134,7 +134,15 @@ import jsonLd from '../../../html/services__brand-building.jsonld.html?raw';
 | **Add real media** | Put files in `public/media/`, reference as `/media/...`; set `data-src`/`data-poster` on the `.vid` and replace the `.ph` placeholder (see [brandkit.md §9](brandkit.md)). |
 | **Deploy to Hostinger** | See §8. |
 
-### Adding a new page (manual, until componentized)
+### Adding pages that are new in the site build (the usual way)
+When the static site generator produces new pages (`live/<route>/index.html`), add only those, so the other pages are not touched:
+```bash
+python3 tools/port-site.py path/to/live --only=slug1,slug2 --chrome --check   # verify first, writes nothing
+python3 tools/port-site.py path/to/live --only=slug1,slug2 --chrome           # write them
+```
+Slug = route with `/` as `__` (`ai-automation/outreach-agent` is `ai-automation__outreach-agent`). `--chrome` also takes the build's header (navbar), footer and icon sprite; leave it out if the nav did not change. Before the run, add the pages' keywords to `website/keywords.json`. After it: add the pages to `public/llms.txt` and `public/llms-full.txt` (copy their lines/sections from the build's files), `npm run build`, and check the nav. Google Tag Manager is one constant (`GTM_ID`) in `Layout.astro`; the script checks it matches the build.
+
+### Adding a new page by hand
 1. `src/html/<slug>.html` — the `<main id="main"> ... </main>`.
 2. `src/html/<slug>.jsonld.html` — the JSON-LD (`Service`/`BreadcrumbList`/`FAQPage` as appropriate).
 3. `src/pages/<route>/index.astro` — copy a sibling of the same `data-page-type`, fix the **relative import depth** (`../` × (number of route segments + 1)), the `?raw` import names, and the Layout props.

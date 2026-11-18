@@ -31,6 +31,12 @@ Each link below goes to a Markdown copy of the page. The canonical HTML page is 
 - [Advertising agents](https://testsandfunnels.com/ai-automation/advertising-agents/index.md): AI advertising agents that set up and optimize Google, Meta and LinkedIn campaigns and report on ad performance, within the budgets you approve.
 - [Sales agents](https://testsandfunnels.com/ai-automation/sales-agents/index.md): AI sales agents that capture leads, follow up on email and WhatsApp and run tele-call workflows, so every lead is tracked from first touch.
 - [Operations agents](https://testsandfunnels.com/ai-automation/operations-agents/index.md): Operations automation with AI agents: MIS, lead and order dashboards, reports and plans kept current, so your team stops rebuilding them by hand.
+- [Market research agent](https://testsandfunnels.com/ai-automation/market-research-agent/index.md): AI market research agent that studies your market, competitors, customer segments and benchmarks, with a source for every finding and a person checking it.
+- [Auditing agent](https://testsandfunnels.com/ai-automation/auditing-agent/index.md): AI auditing agent that checks every stage of your funnel, from visibility to retention, and marks the manual steps. A person reviews each finding.
+- [Web development and SEO agent](https://testsandfunnels.com/ai-automation/web-development-and-seo-agent/index.md): AI web development and SEO agent that builds fast, tracked pages and handles SEO, AEO, AIO and GEO, so search and AI engines can find and cite you.
+- [Outreach agent](https://testsandfunnels.com/ai-automation/outreach-agent/index.md): AI outreach agent for B2B cold outreach: prospect lists, personalised email, WhatsApp and DM sequences and CRM logging, aiming for booked demos.
+- [Graphic design agent](https://testsandfunnels.com/ai-automation/graphic-design-agent/index.md): AI graphic design agent for ad creatives, social posts, carousels, thumbnails and banners in your brand style, sized per placement and reviewed by a person.
+- [Video editing agent](https://testsandfunnels.com/ai-automation/video-editing-agent/index.md): AI video editing agent that turns raw footage into reels, ad cuts and longer edits with captions and brand elements, in every format, reviewed by a person.
 - [Product and lifestyle shoots](https://testsandfunnels.com/production-house/product-and-lifestyle-shoots/index.md): E-commerce product photography and lifestyle video planned for your ad formats, shot in bulk and cut down for every channel you run ads on.
 - [AI visuals and video](https://testsandfunnels.com/production-house/ai-visuals-and-video/index.md): AI video ads and visuals for concepts, variations and scenes that are costly to shoot, built on Higgsfield and reviewed by a person before they run.
 - [UGC](https://testsandfunnels.com/production-house/ugc/index.md): UGC agency for brands in India: creator-style video and photos with briefs, creator selection, review and cut-downs for your ads and social.
@@ -43,6 +49,7 @@ Each link below goes to a Markdown copy of the page. The canonical HTML page is 
 - [Sales services](https://testsandfunnels.com/services/sales-services/index.md): Lead conversion services in Delhi: telecalling and follow-ups, sales training and enablement, and CRM and sales ops setup.
 - [E-commerce brands](https://testsandfunnels.com/industries/e-commerce/index.md): E-commerce marketing agency in India: Meta and Google Ads, Shopify stores, product photography and SEO, reported on ROAS and cost per acquisition.
 - [Hospitals and clinics](https://testsandfunnels.com/industries/healthcare/index.md): Healthcare marketing agency for hospitals and clinics: local SEO, lead campaigns, websites and enquiry follow-up, within advertising rules.
+- [Edtech, coaches and consultants](https://testsandfunnels.com/industries/edtech-coaches-and-consultants/index.md): Marketing for edtech, coaches and consultants: content, lead campaigns, webinar and VSL funnels, and follow-up that turn an audience into enrolments.
 
 ## Training and incubation
 

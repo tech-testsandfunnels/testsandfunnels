@@ -13,6 +13,7 @@
  *   reads free slots from window.TF.slots. Both come from the build variables
  *   PUBLIC_CRM_INTAKE_URL / PUBLIC_CRM_SLOTS_URL; the default is the live CRM.
  *   An empty PUBLIC_CRM_INTAKE_URL turns the CRM off (forms finish in WhatsApp).
+ * Google Tag Manager: set GTM_ID below (empty = off). It runs on every page.
  */
 import '../styles/global.css';
 import pre from '../chrome/pre.html?raw'; // icon sprite + skip link + progress bar + header + mobile nav
@@ -34,6 +35,8 @@ interface Props {
 const SITE = 'https://testsandfunnels.com';
 const OG_IMAGE = SITE + '/media/og-default.jpg';
 const OG_ALT = 'tests&funnels: AI agency, production house and incubator in Delhi';
+/* Google Tag Manager container. Empty string = no Tag Manager. */
+const GTM_ID = 'GTM-NVPFL9XK';
 
 const {
   title,
@@ -68,6 +71,16 @@ const tfConfig =
     hours: { days: [1, 2, 3, 4, 5, 6], start: '11:00', end: '18:00', step: 30, lead: 3, ahead: 14 },
   }) +
   ';';
+
+/* Tag Manager snippet (head) and its noscript fallback (first thing in body). */
+const gtmHead =
+  "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});" +
+  "var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;" +
+  "j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})" +
+  "(window,document,'script','dataLayer','" + GTM_ID + "');";
+const gtmBody =
+  '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=' + GTM_ID +
+  '" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>';
 
 /* Mark the current top-level nav item (the page tells us which one). */
 const header = navCurrent
@@ -119,6 +132,9 @@ const header = navCurrent
     {/* Theme (light/dark) and the js flag, before first paint so nothing flashes */}
     <script is:inline>document.documentElement.classList.add("js");try{var t=localStorage.getItem("tf-theme");if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 
+    {/* Google Tag Manager (after the theme script, as in the site build) */}
+    {GTM_ID && <script is:inline set:html={gtmHead}></script>}
+
     {/* Favicon (files in public/) */}
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -138,6 +154,8 @@ const header = navCurrent
   </head>
 
   <body data-page-type={pageType}>
+    {GTM_ID && <Fragment set:html={gtmBody} />}
+
     {/* Shared chrome before the page content */}
     <Fragment set:html={header} />
 

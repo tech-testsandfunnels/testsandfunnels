@@ -1,0 +1,19 @@
+---
+/* /ai-automation/graphic-design-agent/ : thin wrapper. Content is src/html/ai-automation__graphic-design-agent.html (raw <main>),
+   structured data is src/html/ai-automation__graphic-design-agent.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/ai-automation__graphic-design-agent.html?raw';
+import jsonLd from '../../../html/ai-automation__graphic-design-agent.jsonld.html?raw';
+---
+<Layout
+  title="AI Graphic Design Agent: Ads and Posts | tests&funnels"
+  description="AI graphic design agent for ad creatives, social posts, carousels, thumbnails and banners in your brand style, sized per placement and reviewed by a person."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="AI graphic design agent, AI ad creatives, social media post design, carousel design AI, thumbnail design, banner design automation"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

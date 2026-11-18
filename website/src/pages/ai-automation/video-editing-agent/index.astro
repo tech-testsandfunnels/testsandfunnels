@@ -1,0 +1,19 @@
+---
+/* /ai-automation/video-editing-agent/ : thin wrapper. Content is src/html/ai-automation__video-editing-agent.html (raw <main>),
+   structured data is src/html/ai-automation__video-editing-agent.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/ai-automation__video-editing-agent.html?raw';
+import jsonLd from '../../../html/ai-automation__video-editing-agent.jsonld.html?raw';
+---
+<Layout
+  title="AI Video Editing Agent: Reels and Ads | tests&funnels"
+  description="AI video editing agent that turns raw footage into reels, ad cuts and longer edits with captions and brand elements, in every format, reviewed by a person."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="AI video editing agent, reels editing automation, AI video editor for ads, automatic captions, short video editing, ad cut-downs"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

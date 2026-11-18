@@ -51,6 +51,8 @@ python3 tools/port-site.py path/to/live --check    # verifies, writes nothing
 python3 tools/port-site.py path/to/live            # writes website/src and website/public
 ```
 
+Later, when the generator adds pages, add only those (the rest of the site stays untouched): `python3 tools/port-site.py path/to/live --only=slug --chrome` (`--chrome` also refreshes the navbar, footer and icons). Details in [agent.md](agent.md).
+
 The script stores the shared parts (CSS, header, footer, site script, icon sprite) **once**, gives each page a thin wrapper with its own title, description, canonical, dates and structured data, and copies the Markdown copies, `llms.txt`, `robots.txt` and `media/`. It **stops** and names the page if the shared parts differ between pages. It replaces `website/src/html`, `website/src/pages` and the shared files, so run it on a clean copy.
 
 Then change the per-site constants (this is the whole list for the website):
@@ -58,7 +60,7 @@ Then change the per-site constants (this is the whole list for the website):
 | File | Change |
 |---|---|
 | `website/astro.config.mjs` | `site: 'https://example.com'` |
-| `website/src/layouts/Layout.astro` | `SITE`, `OG_ALT`, `og:site_name`, `author`, the **default CRM URL** (a wrong one sends leads to the wrong CRM), `wa`, `phone`, `email`, fallback `hours` |
+| `website/src/layouts/Layout.astro` | `SITE`, `OG_ALT`, `og:site_name`, `author`, `GTM_ID` (Google Tag Manager container; empty = none), the **default CRM URL** (a wrong one sends leads to the wrong CRM), `wa`, `phone`, `email`, fallback `hours` |
 | `website/keywords.json` | one keyword line per page (`slug`: route with `/` as `__`, home = `index`); rerun the port. The script writes missing slugs to `keywords.todo.json` |
 | `website/public/` | `favicon.ico`, `favicon-32x32.png`, `icon-192.png`, `apple-touch-icon.png` (same set in `frontend/public/`); check the `Sitemap:` line in `robots.txt` shows the new domain; `.htaccess` comment |
 

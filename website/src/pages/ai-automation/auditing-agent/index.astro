@@ -1,0 +1,19 @@
+---
+/* /ai-automation/auditing-agent/ : thin wrapper. Content is src/html/ai-automation__auditing-agent.html (raw <main>),
+   structured data is src/html/ai-automation__auditing-agent.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/ai-automation__auditing-agent.html?raw';
+import jsonLd from '../../../html/ai-automation__auditing-agent.jsonld.html?raw';
+---
+<Layout
+  title="AI Auditing Agent: Full-Funnel Audit | tests&funnels"
+  description="AI auditing agent that checks every stage of your funnel, from visibility to retention, and marks the manual steps. A person reviews each finding."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="AI auditing agent, funnel audit automation, marketing audit AI, full-funnel audit, conversion funnel review, automated business audit"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

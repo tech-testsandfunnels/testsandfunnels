@@ -1,0 +1,19 @@
+---
+/* /industries/edtech-coaches-and-consultants/ : thin wrapper. Content is src/html/industries__edtech-coaches-and-consultants.html (raw <main>),
+   structured data is src/html/industries__edtech-coaches-and-consultants.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/industries__edtech-coaches-and-consultants.html?raw';
+import jsonLd from '../../../html/industries__edtech-coaches-and-consultants.jsonld.html?raw';
+---
+<Layout
+  title="Marketing for Edtech, Coaches, Consultants | tests&funnels"
+  description="Marketing for edtech, coaches and consultants: content, lead campaigns, webinar and VSL funnels, and follow-up that turn an audience into enrolments."
+  pageType="niche"
+  navCurrent="/services/"
+  keywords="edtech marketing agency, marketing for coaches, consultant marketing, webinar funnel, VSL funnel, course enrolment marketing, coaching lead generation India"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>

@@ -1,0 +1,19 @@
+---
+/* /ai-automation/outreach-agent/ : thin wrapper. Content is src/html/ai-automation__outreach-agent.html (raw <main>),
+   structured data is src/html/ai-automation__outreach-agent.jsonld.html. Meta lives in the props below. */
+import Layout from '../../../layouts/Layout.astro';
+import main from '../../../html/ai-automation__outreach-agent.html?raw';
+import jsonLd from '../../../html/ai-automation__outreach-agent.jsonld.html?raw';
+---
+<Layout
+  title="AI Outreach Agent: Cold Email, WhatsApp, DMs | tests&funnels"
+  description="AI outreach agent for B2B cold outreach: prospect lists, personalised email, WhatsApp and DM sequences and CRM logging, aiming for booked demos."
+  pageType="service"
+  navCurrent="/ai-automation/"
+  keywords="AI outreach agent, cold email automation, WhatsApp outreach automation, B2B lead outreach, LinkedIn DM automation, prospect list building"
+  published="2026-11-14"
+  modified="2026-11-17"
+  jsonLd={jsonLd}
+>
+  <Fragment set:html={main} />
+</Layout>
