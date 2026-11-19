@@ -1,16 +1,18 @@
 /* overrides.css
    Site CSS that must survive tools/port-site.py (a full port rewrites global.css).
    Loaded after global.css by Layout.astro, so these rules win at equal specificity.
-   If the site generator's own CSS gets the same fixes, delete the matching block here. */
+   If the site generator's own CSS gets the same changes, delete the matching block here. */
 
-/* ---------- Header dropdowns: stay open on the way to the panel, open and close smoothly ----------
-   Problem: the panel is 16px below its link (margin-top), and that gap belonged to neither the
-   link nor the panel, so the hover was lost on the way down and the panel vanished instantly.
-   1. An invisible bridge on the menu item covers the gap, so :hover never breaks.
-   2. Closing waits 120ms before it fades, so a slip off the edge does not close it, and
-      "visibility" flips only after the fade (it used to flip instantly, cutting the fade).
-   3. Opening is immediate, with a soft slide and fade.
-   4. A tall menu (the AI agents) scrolls inside the panel instead of running off short screens. */
+/* ---------- Header dropdowns ----------
+   1. Stay open on the way to the panel: the panel is a few px below its link and that gap used
+      to break the hover. An invisible bridge on the menu item covers it.
+   2. Open at once with a soft slide and fade; close after a short grace period (120ms) and then
+      fade, with "visibility" flipping after the fade so the fade is not cut.
+   3. Minimal look: compact rows, quiet group headings, no divider lines between groups.
+   4. The two long menus (AI agents, Services) are laid out in two columns so they fit on a
+      laptop screen without a scrollbar. They are anchored to the left edge of their link
+      (a centred 560px panel would run off the left edge of the screen).
+   Desktop only: on small screens the mobile menu (built by app.js) is used instead. */
 .has-sub::after {
   content: "";
   position: absolute;
@@ -20,20 +22,83 @@
   height: 1.25rem;
 }
 .submenu {
-  transform: translateX(-50%) translateY(8px);
-  max-height: calc(100vh - 6.5rem);
+  --tx: -50%;
+  transform: translateX(var(--tx)) translateY(8px);
+  padding: .4rem;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px -10px rgba(42, 45, 61, .22), 0 2px 8px rgba(42, 45, 61, .06);
+  /* Safety net for very short windows only: scroll inside the panel, with no visible scrollbar. */
+  max-height: calc(100vh - 5.5rem);
   overflow-y: auto;
+  scrollbar-width: none;
   overscroll-behavior: contain;
   transition: opacity .16s ease .12s, transform .16s ease .12s, visibility 0s linear .28s;
 }
+.submenu::-webkit-scrollbar {
+  display: none;
+}
 .has-sub:hover .submenu,
 .has-sub:focus-within .submenu {
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(var(--tx)) translateY(0);
   transition: opacity .18s ease, transform .22s cubic-bezier(.2, .7, .2, 1), visibility 0s;
 }
 .has-sub > a.link::after {
   transition: transform .2s ease;
 }
+
+/* Rows and group headings */
+.submenu a {
+  padding: .42rem .7rem;
+  border-radius: 8px;
+  font-size: .88rem;
+}
+.submenu .sub-h {
+  padding: .65rem .7rem .2rem;
+  font-size: .68rem;
+  letter-spacing: .09em;
+}
+.submenu .sub-h:not(:first-child) {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: .65rem;
+}
+
+/* Two-column menus. Written against the links they contain, so they keep working if the order
+   of the menus in the header changes. Without :has() support the panel stays one column. */
+.submenu:has(a[href="/ai-automation/market-research-agent/"]),
+.submenu:has(a[href="/industries/edtech-coaches-and-consultants/"]) {
+  --tx: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  gap: 0 .5rem; /* the nav's own "gap" rule would otherwise add row spacing */
+  left: -1.1rem; /* the first link's text lines up with the link above it */
+  width: 580px;
+  max-width: calc(100vw - 2rem);
+}
+.submenu:has(a[href="/ai-automation/market-research-agent/"]) > li,
+.submenu:has(a[href="/industries/edtech-coaches-and-consultants/"]) > li {
+  grid-column: 1;
+}
+/* AI agents: "Overview" across the top, then Research + Marketing left, Sales + Operations right */
+.submenu:has(a[href="/ai-automation/market-research-agent/"]) > li:first-child {
+  grid-column: 1 / -1;
+  margin-bottom: .15rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+.submenu:has(a[href="/ai-automation/market-research-agent/"]) > li:nth-child(n + 11) {
+  grid-column: 2;
+}
+/* Services: the services on the left, the industries on the right */
+.submenu:has(a[href="/industries/edtech-coaches-and-consultants/"]) {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  width: 610px;
+}
+.submenu:has(a[href="/industries/edtech-coaches-and-consultants/"]) > li:nth-child(n + 9) {
+  grid-column: 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .submenu,
   .has-sub:hover .submenu,
